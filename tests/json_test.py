@@ -1,68 +1,130 @@
 import json
 import time
+import sys
+import tty
+import termios
+import random
+import os 
+from types import DynamicClassAttribute
+
+def readchar():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+manual = '''
+Press keys on keyboard to record value!
+    Q: record
+    W: reproduce
+    E: clear
+    ESC: Quit
+'''
+
 path = '/home/pi/piarm/tests/test.json'
+data = []
+buff = []
+name = 'two'
+index = 0
 
-def fuc(): 
-    dict1 = {'name':'one','type':1,'value':1001}
-    dict2 = {'name':'two','type':2,'value':1002}
-    dict3 = {'name':'three','type':3,'value':1003}
-    dict4 = {'name':'four','type':4,'value':1004}
-    data_in = []
-    data_in.append(dict1)
-    data_in.append(dict2)
-    data_in.append(dict3)
-    data_in.append(dict4)
-    # w   
-    try:
-        with open(path,'w')as f:
-            json.dump(data_in,f)
-            time.sleep(0.1)
-            f.close()
-    except Exception as e:
-        print(e)    
+def init():
+    global data,index
+    if not os.path.exists(path):
+        print('Steps record file does not exist.Create now...')
+        try:
+            os.system('sudo mkdir -p '+path.rsplit('/',1)[0])
+            os.system('sudo touch '+path)
+            os.system('sudo chmod a+rw '+path)
 
-    # r
-    # data_out = []
+            data.append({'name':'none','values':None})
+            data.append({'name':'one','values':None})
+            data.append({'name':'two','values':None})
+            data.append({'name':'three','values':None})
+            with open(path,'w')as f:
+                json.dump(data,f)
+                time.sleep(0.1)
+                f.close()
+
+        except Exception as e:
+            print(e)  
+
+    clear() 
+
     try:
         with open(path,'r')as f:
-            data_out = json.load(f)
+            data = json.load(f)
             time.sleep(0.1)
             f.close()
     except Exception as e:
         print(e)
 
-    print(type(data_out))
-    for d in data_out:
-        if d['name'] == 'three':
-            print(d['type'])
-            print(d['value'])
+    print(type(data))
+    print(len(data)) 
 
-def fuc2():
-    dict5 = {'name':'four','type':404,'value':1004}
-    # r 
+    if name == 'none':
+        index = 0
+    if name == 'one':
+        index = 1
+    if name == 'two':
+        index = 2
+    if name == 'three':
+        index = 3
+
+def record():
+    global data,index
+    buff.append([random.randint(0,100) for _ in range(3)])
+    buff.append(random.randint(0,100))
+
+    msg = {
+        'name':name,
+        'values':buff,
+    }
+    data[index] = msg
+
+    try:
+        with open(path,'w')as f:
+            json.dump(data,f)
+            time.sleep(0.1)
+            f.close()
+    except Exception as e:
+        print(e)     
+
+
+def reproduce():
+    global index
+    # read data
     try:
         with open(path,'r')as f:
-            data_out = json.load(f)
+            _data = json.load(f)
             time.sleep(0.1)
             f.close()
     except Exception as e:
         print(e)
-    # w
-    for index,d in enumerate(data_out):
-        if d['name'] == 'four':
-            data_out[index] = dict5
-            break
-    else:
-        data_out.append(dict5)
-    print(data_out)
-    try:
-        with open(path,'w')as f:
-            json.dump(data_out,f)
-            time.sleep(0.1)
-            f.close()
-    except Exception as e:
-        print(e)    
+
+    print(_data[index]['name'])
+    print(_data[index]['values'])
+
+
+def clear():
+    buff.clear()
 
 
 if __name__ == "__main__":
-    fuc2()
+    init()
+    print(manual)
+    while True:
+        key = readchar()
+        print(key)
+        if 'q' == key:
+            record()
+        if 'w' == key:
+            reproduce()
+        if 'e' == key:
+            clear()
+        if chr(27) == key:
+            break
+        time.sleep(0.01)
