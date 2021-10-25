@@ -13,6 +13,8 @@ rightJoystick = Joystick(ADC('A2'),ADC('A3'),Pin('D1'))
 
 arm = PiArm([1,2,3])
 arm.bucket_init('P3')
+# arm.hanging_clip('P3')
+# arm.electromagnet_init('P3')
 arm.set_offset([0,0,0])
 
 def _angles_control():
