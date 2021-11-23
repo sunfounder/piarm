@@ -1,55 +1,58 @@
 from robot_hat import Servo,PWM,Joystick,ADC,Pin
 from robot_hat.utils import reset_mcu
 from time import sleep
+from robot_hat import TTS
 
 from piarm import PiArm
 
 reset_mcu()
 sleep(0.01)
+t = TTS()
 
 leftJoystick = Joystick(ADC('A0'),ADC('A1'),Pin('D0'))
 rightJoystick = Joystick(ADC('A2'),ADC('A3'),Pin('D1'))
 
 arm = PiArm([1,2,3])
+arm.hanging_clip_init('P3')
 arm.set_offset([0,0,0])
 
-def _coord_control():
+def _angles_control():
     arm.speed = 100
     flag = False
-    x,y,z = arm.current_coord
-    buket_angle = arm.component_staus
+    angle1,angle2,angle3 = arm.servo_positions
+    angle4 = arm.component_staus
 
     if leftJoystick.read_status() == "up":
-        y += 1
+        angle1 += 1
         flag = True
     elif leftJoystick.read_status() == "down":
-        y -= 1
+        angle1 -= 1
         flag = True
-    if rightJoystick.read_status() == "left":
-        buket_angle += 1
+    if leftJoystick.read_status() == "pressed": 	
+        angle4 += 2
         flag = True
-    elif rightJoystick.read_status() == "right":
-        buket_angle -= 1
+    elif rightJoystick.read_status() == "pressed":	
+        angle4 -= 2
         flag = True
     if leftJoystick.read_status() == "left":
-        x -= 1
+        angle3 += 1
         flag = True
     elif leftJoystick.read_status() == "right":
-        x += 1
+        angle3 -= 1
         flag = True
     if rightJoystick.read_status() == "up":
-        z += 1
+        angle2 += 1
         flag = True
     elif rightJoystick.read_status() == "down":
-        z -= 1
+        angle2 -= 1
         flag = True
 
     if flag == True:
-        arm.do_by_coord([x,y,z])
-        arm.set_bucket(buket_angle)
-        print('coord: %s , bucket angle: %s '%(arm.current_coord,arm.component_staus))
+        arm.set_angle([angle1,angle2,angle3])
+        arm.set_bucket(angle4)
+        print('servo angles: %s , clip angle: %s '%(arm.servo_positions,arm.component_staus))
 
 if __name__ == "__main__":
     while True:
-        _coord_control()
+        _angles_control()
         sleep(0.01)
