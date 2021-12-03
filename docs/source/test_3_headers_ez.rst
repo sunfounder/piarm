@@ -14,55 +14,69 @@ Before programming, you need to learn the basic usage of Ezblock Studio from her
 Tips on basic blocks
 ----------------------------
 
-This is the basic structure of the program, the [Start] block is used to do some initialization (even if no block is placed, it cannot be deleted) and the [Forever] block is, as the name suggests, a continuous loop that allows your program to change and respond.
+* This is the basic structure of the program, the [Start] block is used to do some initialization (even if no block is placed, it cannot be deleted) and the [Forever] block is, as the name suggests, a continuous loop that allows your program to change and respond.
 
 .. image:: media/move8.png
 
-This block is used to set an interval time in milliseconds.
+* This block is used to set an interval time in milliseconds.
 
 .. image:: media/delay.png
 
 Tips on PiArm blocks
 ----------------------
 
-Here you can find some code blocks needed to make piarm work.
+Here you can find some blocks needed to make PiArm work.
 
 .. image:: media/piarm_block.png
 
 Shovel Bucket
 --------------------------
 
-Assemble the Shovel Bucket according to the figure below.
+**Step 1**
+
+Assemble the **Shovel Bucket** to the end of **PiArm**.
 
 .. image:: media/bucket.png
+
 
 The rotation range of shovel is as follows.
 
 .. image:: media/bucket2.png
 
-**Step 1** 
+**Step 2**
 
-Put [set bucket pin as P3] in the [Start] block to initialize the bucket pin as P3.
+Now start writing the code to make Shovel Bucket work.
+
+Put [set bucket pin as ()] in the [Start] block to initialize the bucket pin as P3.
+
+.. note::
+    Because in the assembly diagram above, it is connected to the Transfer Module, which is already connected to P3 during the PiArm assembly. Of course you can also connect it to other spare pins.
 
 .. image:: media/bucket31.png
 
-**Step 2** 
+**Step 3**
 
-Put [set shovel bucket angle to 0],[delay1000] in the [Forever] block,
-[set shovel bucket angle to 90] makes the bucket swing back and forth in the angle range of 0-90 at intervals of one second.
+Toggles the angle of the Shovel Bucket between 0° and 90° with an interval of 1s.
+
+* [set shovel bucket angle to ()]: Used to set the angle of Shovel Bucket, the range is 0-90.
+* [delay ()]: From the **Basic** category, used to set the time interval between 2 block runs, in: ms.
 
 .. image:: media/bucket32.png
 
-**Step 3** 
+**Step 4**
 
-After setting up the complete code, click the download icon in the lower right corner to see that shovel start to work.
+Once the code is written, click the **Download** button in the bottom right corner to download it to the PiArm.
+
+Now you will see the **Shovel Bucket** moving back and forth, and you can click the **Run** button to stop the code from running.
 
 .. image:: media/bucket3.png
 
 Hanging Clip
 ------------------------
 
-Assemble Hanging Clip according to the picture below.
+**Step 1**
+
+Assemble **Hanging Clip** to the end of **PiArm**.
 
 .. image:: media/clip.png
 
@@ -70,47 +84,70 @@ The working direction of Hanging Clip is as follows.
 
 .. image:: media/clip2.png
 
-**Step 1** 
+**Step 2**
 
-Put [set hanging clip pin as P3] in the [Start] block to initialize the pin of the hanging clip to P3.
+Now start writing the code to make Shovel Bucket work.
+
+Put [set hanging clip pin as ()] in the [Start] block to initialize the hanging clip pin as P3.
+
+.. note::
+    Because in the assembly diagram above, it is connected to the Transfer Module, which is already connected to P3 during the PiArm assembly. Of course you can also connect it to other spare pins.
+
 
 .. image:: media/clip31.png
 
-**Step 2** 
 
-Put [set hanging clip angle to 0],[delay1000] in the [Forever] block,
-[set hanging clip angle to 90] makes the hanging clip swing back and forth in the angle range of 0-90 at intervals of one second
+**Step 3**
+
+Toggles the angle of the **Hanging Clip** between 0° and 90° with an interval of 1s.
+
+* [set hanging clip angle to ()]: Used to set the angle of **Hanging Clip**, the range is 0-90.
+* [delay ()]: From the **Basic** category, used to set the time interval between 2 block runs, in: ms.
 
 .. image:: media/clip32.png
 
-**Step 3** 
+**Step 4**
 
-After setting up the complete code, click the download icon in the lower right corner to see that the hanging clip start to work.
+Once the code is written, click the **Download** button in the bottom right corner to download it to the PiArm.
+
+Now you will see the **Hanging Clip** repeatedly open/close, and you can click the **Run** button to stop the code from running.
 
 .. image:: media/clip3.png
 
 Electromagnet
 -------------------------
 
-Assemble Electromagnet according to the figure below.
+**Step 1**
+
+Assemble **Electromagnet** to the end of **PiArm**.
 
 .. image:: media/electromagnet.png
 
-**Step 1** 
+**Step 2**
 
-Put [set electromagnet pin as P3] in the [Start] block to initialize the pin of the hanging clip to P3.
+Now start writing the code to make Shovel Bucket work.
+
+Put [set electromagnet pin as ()] in the [Start] block to initialize the electromagnet pin as P3.
+
+.. note::
+    Because in the assembly diagram above, it is connected to the Transfer Module, which is already connected to P3 during the PiArm assembly. Of course you can also connect it to other spare pins.
 
 .. image:: media/electromagnet21.png
 
-**Step 2** 
+**Step 3**
 
-Put [turn electromagnet on], [delay1000] in the [Forever] block
-[turn electromagnet off] makes the electromagnet energized and de-energized at intervals of one second
+Let the electromagnet be repeatedly energized and de-energized at 1 second intervals.
+
+* [turn electromagnet (on/off)]: Used to energize (on) or de-energize (off) the Electromagnet.
+* [delay ()]: From the **Basic** category, used to set the time interval between 2 block runs, in: ms.
 
 .. image:: media/electromagnet22.png
 
-**Step 3** 
 
-After setting up the complete code, click the download icon in the bottom right corner, you will find that the electromagnet is energized every second (the LED (D2) on the electromagnet lights up, indicating that it is energized, at which time it can be used to adsorb some materials with iron.).
+**Step 4**
+
+Once the code is written, click the **Download** button in the bottom right corner to download it to the PiArm.
+
+Now you will find that the **Electromagnet** is energized every second (the LED (D2) on the electromagnet lights up, indicating that it is energized, at which time it can be used to adsorb some materials with iron.).
 
 .. image:: media/electromagnet2.png

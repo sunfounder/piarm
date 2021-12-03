@@ -5,9 +5,9 @@ Ezblock is a development platform developed by SunFounder designed for beginners
 
 
 .. toctree::
-  :maxdepth: 2
+    :maxdepth: 2
 
-  quick_guide_on_ezblock
+    quick_guide_on_ezblock
 
 
 **Projects**
@@ -18,13 +18,13 @@ If you don't want to write these projects one by one, we have uploaded them to E
 
 
 .. toctree::
+    :maxdepth: 1
 
-  test_3_headers_ez
-  sound_effects_ez
-  dual_joystick_module_ez
-  remote_control_ez
-  coordinate_control_ez
-  memory_function_ez
-  game_rubber_duck_collection_ez
-  game_ball_collection_ez
-  
+    test_3_headers_ez
+    sound_effects_ez
+    dual_joystick_module_ez
+    remote_control_ez
+    coordinate_control_ez
+    memory_function_ez
+    game_rubber_duck_collection_ez
+    game_ball_collection_ez

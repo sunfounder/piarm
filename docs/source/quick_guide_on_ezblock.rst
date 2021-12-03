@@ -34,9 +34,5 @@ Before Programming With Ezblock
 -------------------------------------
 About EzBlock Studio installation and quick use tutorial，please refer to: `Install Ezblock Studio <https://docs.sunfounder.com/projects/ezblock3/en/latest/quick_user_guide_for_ezblock3.html#install-ezblock-studio>`_.
 
-.. note::
 
-    When you connect to PiArm on EzBlock Studio, you will be prompted to calibrate PiArm. This is because of possible deviations in the installation process or limitations of the servos themselves, making some servo angles slightly tilted, so you can calibrate them.
-    
-    But if you think the assembly is perfect and no calibration is needed, you can also skip this step.
 

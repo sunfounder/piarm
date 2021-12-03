@@ -10,5 +10,5 @@ Please follow the steps on the PDF to assemble.
     #. Before assembling, you need to buy 2 18650 batteries and fully charge them, refer to :ref:`About the Battery`.
     #. Robot HAT cannot charge the battery, so you need to buy a battery charger at the same time.
 
-* :download:`Components List <https://github.com/sunfounder/sf-pdf/raw/master/assembly_file/a0000715-piarm.pdf>` 
+* :download:`PiArm Assembly Instructions (.pdf) <https://github.com/sunfounder/sf-pdf/raw/master/assembly_file/a0000715-piarm.pdf>` 
 

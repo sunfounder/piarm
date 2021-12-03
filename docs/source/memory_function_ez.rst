@@ -1,84 +1,89 @@
 Memory Function
 ===================
 
-Piarm provides a function of recording actions, which can be used to record the actions that piarm has done.
+Piarm provides a function of recording actions, which can be used to record the actions that PiArm has done.
 
-In this project, we plan to use the joystick to control the piarm, and record the movement trajectory of the piarm through the joystick buttons, so that the piarm can move repeatedly along the recorded trajectory.
+In this project, we will use the Dual Joystick Module to control the movement of the Arm of PiArm in Coordinate Control mode, and record the motion trajectory of the Arm through the joystick buttons so that PiArm can move repeatedly along the recorded trajectory.
 
-Tips on memory block
------------------------
+.. image:: media/joystick.png
+    :width: 600
+    :align: center
 
-.. image:: media/record.png
-
-[record current action] can record the status of each servo of the current piarm, and can record multiple groups through multiple calls.
-
-.. image:: media/recorded.png
-
-[run the recorded actions at 0 interval] can make the piarm servo return to the previously recorded states in the order of recording, 0 interval means that the interval between each state is 0 seconds.
-
-How to build code blocks
+Programming
 --------------------------
 
 **Step 1** 
 
-Create five variables (``HIGH``, ``LOW``, ``xAxis``, ``yAxis`` and ``zAxis``) and place them in the [Start] block to initialize their values, and use [set speed to 70] set the piarm movement speed to 70
+Create five variables (``HIGH``, ``LOW``, ``xAxis``, ``yAxis`` and ``zAxis``) and set their initial values.
 
 .. image:: media/memory1.png
 
 **Step 2** 
 
-Create five variables to represent the values read by the joystick.
+Create a function called [set_position] to make the **Dual Joystick Module** move the PiArm in **Coordinate Control** mode.
 
-* [set LB to digital pin D0 value]: LB indicates the left joystic button.
+* If the **left joystick** is toggled to the right, let the PiArm turn to right.
+* If the **left joystick** is toggled to the left, let PiArm turn to left.
+* If the **left joystick** toggles forward, let PiArm extend.
+* If the **left joystick** toggles backward, let PiArm retract.
+* If the **right joystick** is toggled forward, let PiArm go up.
+* If the **right joystick** is toggled backward, let PiArm go down.
 
-* [set RB to digital pin D1 value]: RB indicates the right joystic button.
-  
-* [set LX to digital pin A0 value]: LX indicates the X-axis direction of the left joystic.
+.. image:: media/memory_set.png
+    :width: 800
 
-* [set LY to digital pin A1 value]: LY indicates the Y-axis direction of the left joystic.
+.. note::
 
-* [set RY to digital pin A3 value]: RY indicates the Y-axis direction of the right joystic.
-
-.. image:: media/memory02.png
+    * About X, Y, Z coordinate directions, please refer to: :ref:`Tips on Coordinates of the Arm`.
+    * For the connection and direction of the dual joystick, refer to :ref:`Tips on Joystick Module`.
+    * [constrain () low () high ()]: From Math category for setting the variation of a constant to a certain range.
+    * [if else]: Conditional judgment block, you can create multiple conditional judgments by clicking the set icon and dragging [else] or [else if] to the right below the [if].
 
 **Step 3** 
 
-Create a [set_position] function to control the movement of the piarm. The code is similar to the previous project. Use the joystick and coordinates to move the piarm.
+A new function, [record], is created to record the current actions and to allow PiArm to reproduce them.
 
-.. image:: media/memory03.png
+* The left and right buttons of the Dual Joystick Module are connected to **D0 (Left Button)**, **D1 (Right Buttbon)** respectively.
+* The buttons will output low level (0) when pressed and output high level (1) when released.
+* When the **button of the left joystick** is pressed, the action of PiArm will be recorded at this time, and there will be a voice prompt to indicate the completion of recording.
+* When the **button of the right joystick** is pressed, PiArm will reproduce these recorded actions.
+
+.. image:: media/record123.png
+
+.. note::
+
+
+    * The [if else], [and] and [=] blocks are all from the **Logic** category.
+    * Right-click on the [and] block and select **External Inputs** to make it top and bottom side-by-side.
+
+    .. image:: media/and.png
+
+    * [run the recorded actions at () internal]: This block is used to set the time interval for each set of recorded actions, if it is 0 it will reproduce each set of actions continuously.
 
 **Step 4** 
 
-Use [LB = 0 and RB = 1] to press the left joystick button, [LB = 1 and RB = 0] to press the right joystick button.
+Put the [set_position] and [record] functions into the [Forever] block to execute them sequentially, and finally click the **Download** button to run the code.
 
-.. image:: media/memory04.png
+Now you can use the joystick to control PiArm, press the **button of the left joystick** to record the desired actions, and after recording a few groups, press the **button of the right joystick** to make PiArm reproduce these actions.
 
-**Step 5** 
 
-[say "Record completed"] voice broadcast recording starts, and then use [record current action] to record the current coordinates of the robotic arm control points. [say "Action"] Voice broadcast action, and then use [run the recorded actions at 0 interval] to move to the previously recorded coordinates.
+.. note::
 
-.. image:: media/memory05.png
+    You can also find the code with the same name on the **Examples** page of **Ezblock Studio** and click **Run** or **Edit** directly to see the results.
 
-**Step 6** 
 
-Use [if ... do ...] to link the joystick button with the memory function, and execute it cyclically in [Forever] block.
+.. image:: media/memory_col.png
+    :width: 800
 
-.. image:: media/memory06.png
 
-Complete Code
---------------------
+What's More
+-------------------
 
-After the program is running, the joystick can be used to control the movement of the piarm. When the left button of the joystick is pressed, the current coordinates will be recorded and there will be voice broadcast, and several sets of coordinates will be recorded.
-After that, when you press the right button of the joystick, the piarm will move along the previously recorded motion trajectory.
+You can also add separate EoAT control code to this project, so that you can control the **Arm** and **EoAT** of the PiArm at the same time.
 
-The complete code is shown below.
-
-.. image:: media/memory3.png
-
-.. image:: media/memory5.png
-
-.. image:: media/memory4.png    
-
+* If you want to control :ref:`Shovel Bucket`, please refer to :ref:`shovel_remote` to write the code.
+* If you want to control :ref:`Hanging Clip`, please refer to :ref:`clip_remote` to write the code.
+* If you want to control :ref:`Electromagnet`, please refer to :ref:`electro_remote` to write the code.
 
 
 
