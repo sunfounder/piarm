@@ -5,12 +5,12 @@ m = Music()
 t = TTS()
 
 def sound():
-    song = '../../Sound/Emergency_Alarm.wav'
+    song = './sounds/sign.wav'
     m.music_set_volume(40)
     m.sound_play(song)
 
 def background_music():
-    music = '../../Music/peace.mp3'	
+    music = './musics/sports-Ahjay_Stelino.mp3'	
     m.music_set_volume(50)
     m.background_music(music)	
 
