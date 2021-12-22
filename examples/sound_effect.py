@@ -7,7 +7,6 @@ t = TTS()
 def sound():
     song = '../../Sound/Emergency_Alarm.wav'
     m.music_set_volume(40)
-    print('Music duration',m.sound_length(song))
     m.sound_play(song)
 
 def background_music():
