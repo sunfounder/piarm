@@ -2,7 +2,6 @@ from piarm import PiArm
 from robot_hat import Pin,PWM,Servo,ADC
 from time import time,sleep
 from robot_hat.utils import reset_mcu
-from robot_hat import TTS
 
 import sys
 import tty
@@ -10,7 +9,6 @@ import termios
 
 reset_mcu()
 sleep(0.01)
-t = TTS()
 
 arm = PiArm([1,2,3])
 arm.hanging_clip_init('P3')
@@ -19,15 +17,15 @@ controllable = 0
 
 
 manual = '''
-Press keys on keyboard to record value!
-    W: L_up
-    A: L_left
-    D: L_right
-    S: L_down
-    I: R_up
-    J: R_left
-    K: R_down
-    L: R_right
+Press keys on keyboard
+    w: extend
+    s: retract    
+    a: turn left
+    d: turn right
+    i: go up
+    k: go down
+    j: open
+    l: close
     ESC: Quit
 '''
 
@@ -45,38 +43,39 @@ def control(key):
 
     arm.speed = 100
     flag = False
-    angle1,angle2,angle3 = arm.servo_positions	
-    angle4 = arm.component_staus
+    alpha,beta,gamma = arm.servo_positions	
+    clip = arm.component_staus
 
+    if key == 'w':
+        alpha += 3
+        flag = True
+    elif key == 's':
+        alpha -= 3		
+        flag = True
     if key == 'a':
-        angle3 += 3		
+        gamma += 3		
         flag = True
     elif key == 'd':
-        angle3 -= 3		
-        flag = True
-    if key == 'j':
-        angle4 += 2
-        flag = True		
-    elif key == 'l':
-        angle4 += 2
-        flag = True		
-    if key == 's':
-        angle1 -= 3
-        flag = True
-    elif key == 'w':
-        angle1 += 3		
-        flag = True
+        gamma -= 3		
+        flag = True	
     if key == 'i':
-        angle2 += 3		
+        beta += 3		
         flag = True
     elif key == 'k':
-        angle2 -= 3		
+        beta -= 3		
         flag = True
-        				
+    
+    if key == 'j':
+        clip -= 1
+        flag = True		
+    elif key == 'l':
+        clip += 1
+        flag = True	
+    
     if flag == True:
-        arm.set_angle([angle1,angle2,angle3])
-        arm.set_bucket(angle4)		
-        print('servo angles: %s , bucket angle: %s '%(arm.servo_positions,arm.component_staus))
+        arm.set_angle([alpha,beta,gamma])
+        arm.set_hanging_clip(clip)		
+        print('servo angles: %s , clip angle: %s '%(arm.servo_positions,arm.component_staus))
 
 	
 if __name__ == "__main__":

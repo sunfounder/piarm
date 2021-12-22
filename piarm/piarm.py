@@ -110,13 +110,13 @@ class PiArm(Robot):
             u = 30
         self.coord_temp = [x,y,z]
 
-        angle1 = math.acos((self.A**2 + u**2 - self.B**2) / (2 * self.A * u))
-        angle2 = math.asin(z / u)
-        angle3 = math.acos((self.A**2 + self.B**2 - u**2) / (2 * self.A * self.B))
-        angle4 = math.atan2(x, y)
-        alpha = 90 - (angle1 + angle2) / math.pi * 180
-        beta = -180 + (angle1 + angle2 + angle3) / math.pi * 180
-        gamma = - angle4 / math.pi * 180
+        alpha = math.acos((self.A**2 + u**2 - self.B**2) / (2 * self.A * u))
+        beta = math.asin(z / u)
+        gamma = math.acos((self.A**2 + self.B**2 - u**2) / (2 * self.A * self.B))
+        delta = math.atan2(x, y)
+        alpha = 90 - (alpha + beta) / math.pi * 180
+        beta = -180 + (alpha + beta + gamma) / math.pi * 180
+        gamma = - delta / math.pi * 180
 
         # alpha = round(alpha,2)
         # beta = round(beta,2)

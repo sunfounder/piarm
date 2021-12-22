@@ -16,44 +16,36 @@ rightJoystick = Joystick(ADC('A2'),ADC('A3'),Pin('D1'))
 arm = PiArm([1,2,3])
 arm.hanging_clip_init('P3')
 arm.set_offset([0,0,0])
-controllable = 0
+arm.speed = 100
+game_flag = 0
 
 def control():
-    while controllable == 1:	
-        arm.speed = 100
-        flag = False
-        angle1,angle2,angle3 = arm.servo_positions
-        angle4 = arm.component_staus
 
-        if leftJoystick.read_status() == "up":
-            angle1 += 1
-            flag = True
-        elif leftJoystick.read_status() == "down":
-            angle1 -= 1
-            flag = True
-        if leftJoystick.read_status() == "pressed":  	
-            angle4 += 1
-            flag = True
-        elif rightJoystick.read_status() == "pressed":	
-            angle4 -= 1
-            flag = True
-        if leftJoystick.read_status() == "left":
-            angle3 += 1
-            flag = True
-        elif leftJoystick.read_status() == "right":
-            angle3 -= 1
-            flag = True
-        if rightJoystick.read_status() == "up":
-            angle2 += 1
-            flag = True
-        elif rightJoystick.read_status() == "down":
-            angle2 -= 1
-            flag = True
+    alpha,beta,gamma = arm.servo_positions
+    clip = arm.component_staus
 
-        if flag == True:
-            arm.set_angle([angle1,angle2,angle3])
-            arm.set_hanging_clip(angle4)
-            print('coord: %s , servo angles: %s , clip angle: %s '%(arm.current_coord,arm.servo_positions,arm.component_staus))
+    if leftJoystick.read_status() == "up":
+        alpha += 1
+    elif leftJoystick.read_status() == "down":
+        alpha -= 1
+    if leftJoystick.read_status() == "left":
+        gamma += 1
+    elif leftJoystick.read_status() == "right":
+        gamma -= 1
+    if rightJoystick.read_status() == "up":
+        beta += 1
+    elif rightJoystick.read_status() == "down":
+        beta -= 1
+    if leftJoystick.read_status() == "pressed":  	
+        clip += 1
+    elif rightJoystick.read_status() == "pressed":	
+        clip -= 1
+
+
+    # if key_flag == True:
+    arm.set_angle([alpha,beta,gamma])
+    arm.set_hanging_clip(clip)
+        # print('coord: %s , servo angles: %s , clip angle: %s '%(arm.current_coord,arm.servo_positions,arm.component_staus))
 
 def timing():
     sleep(60)
@@ -64,20 +56,21 @@ def timing():
     t.say("one")	
     sleep(1)
     t.say("game over")	
-    global controllable
-    controllable = 0	
+    global game_flag
+    game_flag = 0	
 
 if __name__ == "__main__":
 
-    thread1 = threading.Thread(target = control)
-    thread2 = threading.Thread(target = timing)	
-    i = 1
-    while i:
+    thread1 = threading.Thread(target = timing)	
+    thread1.start()	
+    print("Press two joysticks at the same time to start the game")
+    
+    while True:
         if 	leftJoystick.read_status() == "pressed" and rightJoystick.read_status() == "pressed":
-            i = i - 1
             t.say("timing begins")
-            controllable = 1
-            thread1.start() 			
-            thread2.start()	
+            game_flag = 1		
+        if game_flag == 1:
+            control()
+            
 	
 		
