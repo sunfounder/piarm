@@ -11,7 +11,7 @@ reset_mcu()
 sleep(0.01)
 
 arm = PiArm([1,2,3])
-arm.hanging_clip_init('P3')
+arm.hanging_clip_init(PWM('P3'))
 arm.set_offset([0,0,0])
 controllable = 0
 

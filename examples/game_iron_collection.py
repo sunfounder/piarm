@@ -15,7 +15,7 @@ sleep(0.01)
 t = TTS()
 
 arm = PiArm([1,2,3])
-arm.electromagnet_init('P3')
+arm.electromagnet_init(PWM('P3'))
 arm.set_offset([0,0,0])
 arm.speed = 100
 flag = False
@@ -114,8 +114,9 @@ if __name__ == "__main__":
         key = readchar()
         if  key == 'p':
             print(manual2)
-            say_shape()
             flag = True
+            sleep(3)
+            say_shape()
         if flag == True:
             control(key)
         if key == chr(27):

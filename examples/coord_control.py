@@ -12,7 +12,7 @@ rightJoystick = Joystick(ADC('A2'),ADC('A3'),Pin('D1'))
 
 arm = PiArm([1,2,3])
 arm.set_offset([0,0,0])
-arm.bucket_init('P3')
+arm.bucket_init(PWM('P3'))
 
 
 def _coord_control():
