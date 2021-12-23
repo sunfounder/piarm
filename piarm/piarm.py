@@ -57,19 +57,19 @@ class PiArm(Robot):
         self.speed = speed 
     
     def bucket_init(self, pin):
-        self.bucket = Servo(PWM(pin))
+        self.bucket = Servo(pin)
         self.bucket_angle = 0
         self.component = 'bucket'
         self.data_index = 1
 
     def hanging_clip_init(self, pin):
-        self.hanging_clip = Servo(PWM(pin))
+        self.hanging_clip = Servo(pin)
         self.hanging_clip_angle = 0
         self.component = 'hanging_clip'
         self.data_index = 2
 
     def electromagnet_init(self, pin):
-        self.elecma = PWM(pin)
+        self.elecma = pin
         self.elecma.pulse_width_percent(0)
         self.component = 'electromagnet'
         self.data_index = 3
