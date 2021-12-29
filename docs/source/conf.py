@@ -13,16 +13,14 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import sphinx_rtd_theme
+
 
 # -- Project information -----------------------------------------------------
+import sphinx_rtd_theme
 
-project = 'Piarm'
-copyright = '2021, SunFounder'
-author = 'www.sunfounder.com'
-
-# The full version, including alpha/beta/rc tags
-release = '1.0'
+project = 'Emakefun PiSloth机器人'
+copyright = '2021, Emakefun'
+author = 'Emakefun'
 
 
 # -- General configuration ---------------------------------------------------
@@ -30,7 +28,8 @@ release = '1.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autosectionlabel']
+extensions = ['sphinx.ext.autosectionlabel'
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -50,29 +49,29 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
+# Emakefun logo
 
+# html_js_files = [
+#     'https://ezblock.cc/readDocFile/topHead.js',
+# ]
+# html_css_files = [
+#     'https://ezblock.cc/readDocFile/topHead.css',
+# ]
 
-# SunFounder logo
-
-#html_js_files = [
-#    'https://ezblock.cc/readDocFile/topHead.js',
-#]
-#html_css_files = [
-#    'https://ezblock.cc/readDocFile/topHead.css',
-#]
+#### RTD+
 
 html_js_files = [
     'https://ezblock.cc/readDocFile/topHead.js',
     'https://ezblock.cc/readDocFile/readTheDoc/src/js/ace.js',
+    'https://ezblock.cc/readDocFile/readTheDoc/src/js/ext-language_tools.js',
+    'https://ezblock.cc/readDocFile/readTheDoc/src/js/theme-chrome.js',
     'https://ezblock.cc/readDocFile/readTheDoc/src/js/mode-python.js',
     'https://ezblock.cc/readDocFile/readTheDoc/src/js/mode-sh.js',
     'https://ezblock.cc/readDocFile/readTheDoc/src/js/monokai.js',
     'https://ezblock.cc/readDocFile/readTheDoc/src/js/xterm.js',
     'https://ezblock.cc/readDocFile/readTheDoc/src/js/FitAddon.js',
     'https://ezblock.cc/readDocFile/readTheDoc/src/js/readTheDocIndex.js',
+
 ]
 html_css_files = [
     'https://ezblock.cc/readDocFile/topHead.css',
@@ -80,9 +79,40 @@ html_css_files = [
     'https://ezblock.cc/readDocFile/readTheDoc/src/css/xterm.css',
 ]
 
+
+
 # Multi-language
 
 language = 'en' # Before running make html, set the language.
 locale_dirs = ['locale/'] # .po files for other languages are placed in the locale/ folder.
 
 gettext_compact = False # Support for generating the contents of the folders inside source/ into other languages.
+
+
+
+latex_elements = {
+# The paper size ('letterpaper' or 'a4paper').
+#'papersize': 'letterpaper',
+
+# The font size ('10pt', '11pt' or '12pt').
+#'pointsize': '10pt',
+
+# Additional stuff for the LaTeX preamble.
+#'preamble': '',
+'preamble': r'''
+\hypersetup{unicode=true}
+\usepackage{CJKutf8}
+\DeclareUnicodeCharacter{00A0}{\nobreakspace}
+\DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
+\DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}
+\DeclareUnicodeCharacter{2286}{\ensuremath{\subseteq}}
+\DeclareUnicodeCharacter{2713}{x}
+\DeclareUnicodeCharacter{27FA}{\ensuremath{\Longleftrightarrow}}
+\DeclareUnicodeCharacter{221A}{\ensuremath{\sqrt{}}}
+\DeclareUnicodeCharacter{221B}{\ensuremath{\sqrt[3]{}}}
+\DeclareUnicodeCharacter{2295}{\ensuremath{\oplus}}
+\DeclareUnicodeCharacter{2297}{\ensuremath{\otimes}}
+\begin{CJK}{UTF8}{gbsn}
+\AtEndDocument{\end{CJK}}
+''',
+}
