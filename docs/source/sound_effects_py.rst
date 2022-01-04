@@ -33,7 +33,7 @@
     cd /home/pi/piarm/examples
     sudo python3 sound_effect.py
 
-代码运行后，请按照终端打印的提示进行操作。
+代码运行后，PiArm会开始播放背景音乐，同时播放音效和说 \"timing begins\"，\"three\"，\"two\"，\"one\"，\"Stop music\"。
 
 **代码** 
 
@@ -95,7 +95,7 @@
 
 以40%的音量播放音效 ``./sounds/sign.wav``。
 
-* ``music_set_volume()``: 设置音量，范围是0%-40%。
+* ``music_set_volume()``: 设置音量，范围是0%-100%。
 * ``sound_play()``: 播放特定路径下音效。
 
 

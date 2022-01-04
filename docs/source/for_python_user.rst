@@ -13,7 +13,8 @@
 组装完成后，你可以尝试运行下面的项目。
 
 .. toctree::
-
+    :maxdepth: 1
+    
     download_and_run_code
     test_3_headers_py
     sound_effects_py
