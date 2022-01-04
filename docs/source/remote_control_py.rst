@@ -1,9 +1,13 @@
 Remote Control
 ==================
 
-In this project, we will use the keyboard keys WSADIKJL to control the piarm.
+In this project, we will use ``w``, ``s``, ``a``, ``d``, ``i``, ``k``, ``j`` and ``l`` on the keyboard to control the PiArm.
 
-**Play Shovel Bucket**
+
+Control the Shovel Bucket
+----------------------------
+
+**Run the code**
 
 .. raw:: html
 
@@ -14,16 +18,17 @@ In this project, we will use the keyboard keys WSADIKJL to control the piarm.
     cd /home/pi/piarm/examples
     sudo python3 keyboard_control1.py
 
-After running the code, you can use the keyboard to control the piarm and bucket, press the ESC key to exit.
+After running the code, follow the prompts and press the keys on the keyboard to control the PiArm's arm and Shovel Bucket.
 
-**Code**
+But you need to assemble :ref:`Shovel Bucket` on the PiArm first.
 
 .. note::
-    You can **Modify/Reset/Copy/Run/Stop** the code below. But before that, you need to go to source code path like ``piarm\examples``. After modifying the code, you can run it directly to see the effect.
 
-.. raw:: html
+    * To switch the keyboard to lowercase English input.
+    * ``w``, ``s``, ``a``, ``d``, ``i`` and ``k`` are used to control the rotation of the arm.
+    * ``j`` and ``l`` are used to control the angle of the Shovel Bucket.
 
-    <run></run>
+**Code**
 
 .. code-block:: python
 
@@ -31,7 +36,6 @@ After running the code, you can use the keyboard to control the piarm and bucket
     from robot_hat import Pin,PWM,Servo,ADC
     from time import time,sleep
     from robot_hat.utils import reset_mcu
-    from robot_hat import TTS
 
     import sys
     import tty
@@ -39,23 +43,23 @@ After running the code, you can use the keyboard to control the piarm and bucket
 
     reset_mcu()
     sleep(0.01)
-    t = TTS()
 
     arm = PiArm([1,2,3])
-    arm.bucket_init('P3')
+    arm.bucket_init(PWM('P3'))
     arm.set_offset([0,0,0])
     controllable = 0
 
+
     manual = '''
-    Press keys on keyboard to record value!
-        W: L_up
-        A: L_left
-        D: L_right
-        S: L_down
-        I: R_up
-        J: R_left
-        K: R_down
-        L: R_right
+    Press keys on keyboard
+        w: extend
+        s: retract    
+        a: turn left
+        d: turn right
+        i: go up
+        k: go down
+        j: open
+        l: close
         ESC: Quit
     '''
 
@@ -73,38 +77,39 @@ After running the code, you can use the keyboard to control the piarm and bucket
 
         arm.speed = 100
         flag = False
-        angle1,angle2,angle3 = arm.servo_positions	
-        angle4 = arm.component_staus
+        alpha,beta,gamma = arm.servo_positions	
+        bucket = arm.component_staus
 
+        if key == 'w':
+            alpha += 3
+            flag = True
+        elif key == 's':
+            alpha -= 3		
+            flag = True
         if key == 'a':
-            angle3 += 3		
+            gamma += 3		
             flag = True
         elif key == 'd':
-            angle3 -= 3		
-            flag = True
-        if key == 'j':
-            angle4 += 2
-            flag = True		
-        elif key == 'l':
-            angle4 += 2
-            flag = True		
-        if key == 's':
-            angle1 -= 3
-            flag = True
-        elif key == 'w':
-            angle1 += 3		
-            flag = True
+            gamma -= 3		
+            flag = True	
         if key == 'i':
-            angle2 += 3		
+            beta += 3		
             flag = True
         elif key == 'k':
-            angle2 -= 3		
+            beta -= 3		
             flag = True
-                            
+        if key == 'j':
+            bucket -= 1
+            flag = True		
+        elif key == 'l':
+            bucket += 1
+            flag = True	
+
         if flag == True:
-            arm.set_angle([angle1,angle2,angle3])
-            arm.set_bucket(angle4)		
+            arm.set_angle([alpha,beta,gamma])
+            arm.set_bucket(bucket)		
             print('servo angles: %s , bucket angle: %s '%(arm.servo_positions,arm.component_staus))
+
         
     if __name__ == "__main__":
 
@@ -114,9 +119,93 @@ After running the code, you can use the keyboard to control the piarm and bucket
             key = readchar()
             control(key)
             if key == chr(27):
-                break	
+                break		
 
-**Play Hanging Clip**
+
+**How it works?**
+
+.. code-block:: python
+
+    def readchar():
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(sys.stdin.fileno())
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
+
+This function references the standard input stream and returns the first character of the read data stream.
+
+* ``tty.setraw(sys.stdin.fileno)`` is to change the standard input stream to raw mode, i.e. all characters will not be escaped during transmission, including special characters.
+* ``old_settings = termios.tcgetattr(fd)`` and ``termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)`` and acts as a backup and restore.
+
+.. code-block:: python
+
+    def control(key):
+
+        arm.speed = 100
+        flag = False
+        alpha,beta,gamma = arm.servo_positions	
+        bucket = arm.component_staus
+
+        if key == 'w':
+            alpha += 3
+            flag = True
+        elif key == 's':
+            alpha -= 3		
+            flag = True
+        if key == 'a':
+            gamma += 3		
+            flag = True
+        elif key == 'd':
+            gamma -= 3		
+            flag = True	
+        if key == 'i':
+            beta += 3		
+            flag = True
+        elif key == 'k':
+            beta -= 3		
+            flag = True
+        if key == 'j':
+            bucket -= 1
+            flag = True		
+        elif key == 'l':
+            bucket += 1
+            flag = True	
+
+        if flag == True:
+            arm.set_angle([alpha,beta,gamma])
+            arm.set_bucket(bucket)		
+            print('servo angles: %s , bucket angle: %s '%(arm.servo_positions,arm.component_staus))
+
+In this code, the ``control()`` function is created to control the PiArm by reading the key values on the keyboard.
+
+* ``alpha``, ``beta`` and ``gamma`` refer to the angles of the 3 servos on the arm respectively, refer to: :ref:`Tips on the Angle of the Arm`.
+* Press the ``w`` key on the keyboard, the ``alpha`` increases and the Arm will extend forward.
+* Press the ``s`` key on the keyboard, the ``alpha`` decreases and the Arm will retract backward.
+* Press the ``a`` key on the keyboard, the ``gamma`` increases and the Arm will turn left.
+* Press the ``d`` key on the keyboard, the ``gamma`` decreases and the Arm will turn right.
+* Press the ``i`` key on the keyboard, the ``beta`` increases and the Arm will raise up.
+* Press the ``k`` key on the keyboard, the ``beta`` decreases and the Arm will lower down.
+* Finally, use the ``k`` and ``l`` keys to control the angle of the Shovel Bucket respectively.
+
+.. code-block:: python
+
+    while True:
+        key = readchar()
+        control(key)
+        if key == chr(27):
+            break
+
+Call ``readchar()`` in the main program to read the key value, then pass the read key value into the ``control()`` function so that PiArm will move according to the different keys.
+``key == chr(27)`` represents the key ``Esc`` key press.
+
+Control the Hanging Clip
+----------------------------
+
+**Run the code**
 
 .. raw:: html
 
@@ -127,16 +216,18 @@ After running the code, you can use the keyboard to control the piarm and bucket
     cd /home/pi/piarm/examples
     sudo python3 keyboard_control2.py
 
-After running the code, you can use the keyboard to control the piarm and the hanging clip, press the ESC key to exit.
+After running the code, follow the prompts and press the keys on the keyboard to control the Arm and Hanging Clip of PiArm.
+
+But you need to assemble :ref:`Hanging Clip` to PiArm first.
+
+.. note::
+
+    * To switch the keyboard to lowercase English input.
+    * ``w``, ``s``, ``a``, ``d``, ``i`` and ``k`` are used to control the rotation of the arm.
+    * ``j`` and ``l`` are used to control the opening and closing of the Hanging Clip.
 
 **Code**
 
-.. note::
-    You can **Modify/Reset/Copy/Run/Stop** the code below. But before that, you need to go to source code path like ``piarm\examples``. After modifying the code, you can run it directly to see the effect.
-
-.. raw:: html
-
-    <run></run>
 
 .. code-block:: python
 
@@ -144,7 +235,6 @@ After running the code, you can use the keyboard to control the piarm and the ha
     from robot_hat import Pin,PWM,Servo,ADC
     from time import time,sleep
     from robot_hat.utils import reset_mcu
-    from robot_hat import TTS
 
     import sys
     import tty
@@ -152,23 +242,23 @@ After running the code, you can use the keyboard to control the piarm and the ha
 
     reset_mcu()
     sleep(0.01)
-    t = TTS()
 
     arm = PiArm([1,2,3])
-    arm.hanging_clip_init('P3')
+    arm.hanging_clip_init(PWM('P3'))
     arm.set_offset([0,0,0])
     controllable = 0
 
+
     manual = '''
-    Press keys on keyboard to record value!
-        W: L_up
-        A: L_left
-        D: L_right
-        S: L_down
-        I: R_up
-        J: R_left
-        K: R_down
-        L: R_right
+    Press keys on keyboard
+        w: extend
+        s: retract    
+        a: turn left
+        d: turn right
+        i: go up
+        k: go down
+        j: open
+        l: close
         ESC: Quit
     '''
 
@@ -186,38 +276,40 @@ After running the code, you can use the keyboard to control the piarm and the ha
 
         arm.speed = 100
         flag = False
-        angle1,angle2,angle3 = arm.servo_positions	
-        angle4 = arm.component_staus
+        alpha,beta,gamma = arm.servo_positions	
+        clip = arm.component_staus
 
+        if key == 'w':
+            alpha += 3
+            flag = True
+        elif key == 's':
+            alpha -= 3		
+            flag = True
         if key == 'a':
-            angle3 += 3		
+            gamma += 3		
             flag = True
         elif key == 'd':
-            angle3 -= 3		
-            flag = True
-        if key == 'j':
-            angle4 += 2
-            flag = True		
-        elif key == 'l':
-            angle4 += 2
-            flag = True		
-        if key == 's':
-            angle1 -= 3
-            flag = True
-        elif key == 'w':
-            angle1 += 3		
-            flag = True
+            gamma -= 3		
+            flag = True	
         if key == 'i':
-            angle2 += 3		
+            beta += 3		
             flag = True
         elif key == 'k':
-            angle2 -= 3		
+            beta -= 3		
             flag = True
-                            
+        
+        if key == 'j':
+            clip -= 1
+            flag = True		
+        elif key == 'l':
+            clip += 1
+            flag = True	
+        
         if flag == True:
-            arm.set_angle([angle1,angle2,angle3])
-            arm.set_hanging_clip(angle4)		
+            arm.set_angle([alpha,beta,gamma])
+            arm.set_hanging_clip(clip)		
             print('servo angles: %s , clip angle: %s '%(arm.servo_positions,arm.component_staus))
+
         
     if __name__ == "__main__":
 
@@ -229,7 +321,24 @@ After running the code, you can use the keyboard to control the piarm and the ha
             if key == chr(27):
                 break	
 
-**Play Electromagnet**
+In this code, the ``control()`` function is created to control the PiArm by reading the key values on the keyboard.
+
+* ``alpha``, ``beta`` and ``gamma`` refer to the angles of the 3 servos on the arm respectively, refer to: :ref:`Tips on the Angle of the Arm`.
+* Press the ``w`` key on the keyboard, the ``alpha`` increases and the Arm will extend forward.
+* Press the ``s`` key on the keyboard, the ``alpha`` decreases and the Arm will retract backward.
+* Press the ``a`` key on the keyboard, the ``gamma`` increases and the Arm will turn left.
+* Press the ``d`` key on the keyboard, the ``gamma`` decreases and the Arm will turn right.
+* Press the ``i`` key on the keyboard, the ``beta`` increases and the Arm will raise up.
+* Press the ``k`` key on the keyboard, the ``beta`` decreases and the Arm will lower down.
+* Finally, use the ``k`` and ``l`` keys to control the opening and closing of the Hanging Clip respectively.
+
+
+.. _elec_keyboard:
+
+Control the Electromagnet
+----------------------------------
+
+**Run the code**
 
 .. raw:: html
 
@@ -240,16 +349,18 @@ After running the code, you can use the keyboard to control the piarm and the ha
     cd /home/pi/piarm/examples
     sudo python3 keyboard_control1.py
 
-After running the code, you can use the keyboard to control the piarm and electromagnet, press the ESC key to exit.
+After running the code, follow the prompts and press the keys on the keyboard to control the PiArm's arms and Electromagnet.
+
+But you need to assemble :ref:`Electromagnet` to PiArm first.
+
+.. note::
+
+    * To switch the keyboard to lowercase English input.
+    * ``w``, ``s``, ``a``, ``d``, ``i`` and ``k`` are used to control the rotation of the arm.
+    * ``j`` and ``l`` are used to control the ON and OFF of the Electromagnet.
 
 **Code**
 
-.. note::
-    You can **Modify/Reset/Copy/Run/Stop** the code below. But before that, you need to go to source code path like ``piarm\examples``. After modifying the code, you can run it directly to see the effect.
-
-.. raw:: html
-
-    <run></run>
 
 .. code-block:: python
 
@@ -257,7 +368,6 @@ After running the code, you can use the keyboard to control the piarm and electr
     from robot_hat import Pin,PWM,Servo,ADC
     from time import time,sleep
     from robot_hat.utils import reset_mcu
-    from robot_hat import TTS
 
     import sys
     import tty
@@ -265,23 +375,23 @@ After running the code, you can use the keyboard to control the piarm and electr
 
     reset_mcu()
     sleep(0.01)
-    t = TTS()
 
     arm = PiArm([1,2,3])
-    arm.electromagnet_init('P3')
+    arm.electromagnet_init(PWM('P3'))
     arm.set_offset([0,0,0])
     controllable = 0
 
+
     manual = '''
-    Press keys on keyboard 
-        W: L_up
-        A: L_left
-        D: L_right
-        S: L_down
-        I: R_up
-        J: R_left
-        K: R_down
-        L: R_right
+    Press keys on keyboard
+        w: extend
+        s: retract    
+        a: turn left
+        d: turn right
+        i: go up
+        k: go down
+        j: on
+        l: off
         ESC: Quit
     '''
 
@@ -299,37 +409,37 @@ After running the code, you can use the keyboard to control the piarm and electr
 
         arm.speed = 100
         flag = False
-        angle1,angle2,angle3 = arm.servo_positions	
+        alpha,beta,gamma = arm.servo_positions	
         status = ""
 
+        if key == 'w':
+            alpha += 3
+            flag = True
+        elif key == 's':
+            alpha -= 3		
+            flag = True
         if key == 'a':
-            angle3 += 3		
+            gamma += 3		
             flag = True
         elif key == 'd':
-            angle3 -= 3		
-            flag = True
-        if key == 'j':
-            arm.set_electromagnet('on')
-            status = "electromagnet is on"		
-        elif key == 'l':
-            arm.set_electromagnet('off')
-            status = "electromagnet is off"		
-        if key == 's':
-            angle1 -= 3
-            flag = True
-        elif key == 'w':
-            angle1 += 3		
-            flag = True
+            gamma -= 3		
+            flag = True	
         if key == 'i':
-            angle2 += 3		
+            beta += 3		
             flag = True
         elif key == 'k':
-            angle2 -= 3		
+            beta -= 3		
             flag = True
-                            
+
+        if key == 'j':
+            arm.set_electromagnet('on')		
+        elif key == 'l':
+            arm.set_electromagnet('off')
+            
         if flag == True:
-            arm.set_angle([angle1,angle2,angle3])	
+            arm.set_angle([alpha,beta,gamma])	
             print('servo angles: %s , electromagnet status: %s '%(arm.servo_positions,status))
+
         
     if __name__ == "__main__":
 
@@ -339,38 +449,15 @@ After running the code, you can use the keyboard to control the piarm and electr
             key = readchar()
             control(key)
             if key == chr(27):
-                break	
+                break		
 
-**How it works?**
+In this code, the ``control()`` function is created to control the PiArm by reading the key values on the keyboard.
 
-Similar to the previous project, but this time we control the rotation angle of the piarm servo by reading the value of the keyboard keys.
-
-.. code-block::
-
-    def readchar():
-        fd = sys.stdin.fileno()
-        old_settings = termios.tcgetattr(fd)
-        try:
-            tty.setraw(sys.stdin.fileno())
-            ch = sys.stdin.read(1)
-        finally:
-            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-        return ch
-
-Implement a function readchar(), read the key input, and return the pressed keyboard character. sys.stdin.read(1) can achieve this function,
-But in order to avoid some special characters being escaped, we usually change the mode of the standard input stream before reading the key, and then change it back after reading.
-
-* ``tty.setraw(sys.stdin.fileno)`` is to change the standard input stream to raw mode, that is, all characters will not be escaped during transmission, including special characters. Before changing the mode, back up the original mode, and restore it after the change.
-
-* ``old_settings = termios.tcgetattr(fd)`` and ``termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)`` plays the role of backup and restore. ``fd`` is the `File descriptor <https://en.wikipedia.org/wiki/File_descriptor>`_ of the standard input stream.
-
-.. code-block::
-
-    while True:
-        key = readchar()
-        control(key)
-        if key == chr(27):
-            break
-
-Then call ``readchar()`` to read the pressed key and assign it to the ``key``, and then call ``control(key)`` to control the movement of the piarm through the value of the ``key``.
-``key == chr(27)`` means to press the esc key.	
+* ``alpha``, ``beta`` and ``gamma`` refer to the angles of the 3 servos on the arm respectively, refer to: :ref:`Tips on the Angle of the Arm`.
+* Press the ``w`` key on the keyboard, the ``alpha`` increases and the Arm will extend forward.
+* Press the ``s`` key on the keyboard, the ``alpha`` decreases and the Arm will retract backward.
+* Press the ``a`` key on the keyboard, the ``gamma`` increases and the Arm will turn left.
+* Press the ``d`` key on the keyboard, the ``gamma`` decreases and the Arm will turn right.
+* Press the ``i`` key on the keyboard, the ``beta`` increases and the Arm will raise up.
+* Press the ``k`` key on the keyboard, the ``beta`` decreases and the Arm will lower down.
+* Finally, use the ``k`` and ``l`` keys to control the ON and OFF of the Electromagnet respectively.

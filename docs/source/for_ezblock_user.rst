@@ -26,5 +26,5 @@ If you don't want to write these projects one by one, we have uploaded them to E
     remote_control_ez
     coordinate_control_ez
     memory_function_ez
-    game_rubber_duck_collection_ez
-    game_ball_collection_ez
+    game_catching_dolls_ez
+    game_iron_collection_ez

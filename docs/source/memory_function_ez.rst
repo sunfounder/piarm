@@ -20,14 +20,14 @@ Create five variables (``HIGH``, ``LOW``, ``xAxis``, ``yAxis`` and ``zAxis``) an
 
 **Step 2** 
 
-Create a function called [set_position] to make the **Dual Joystick Module** move the PiArm in **Coordinate Control** mode.
+Create a function named [set_position] to make the **Dual Joystick Module** move the PiArm in **Coordinate Control** mode.
 
-* If the **left joystick** is toggled to the right, let the PiArm turn to right.
-* If the **left joystick** is toggled to the left, let PiArm turn to left.
-* If the **left joystick** toggles forward, let PiArm extend.
-* If the **left joystick** toggles backward, let PiArm retract.
-* If the **right joystick** is toggled forward, let PiArm go up.
-* If the **right joystick** is toggled backward, let PiArm go down.
+* If the **left joystick** is toggled to the right, the Arm will turn right.
+* If the **left joystick** is toggled to the left, the Arm will turn left.
+* If the **left joystick** is toggled forward, the Arm will extend forward.
+* If the **left joystick** is toggled backward, the Arm will retract backward.
+* If the **right joystick** is toggled forward, the Arm will raise up.
+* If the **right joystick** is toggled backward, the Arm will lower down.
 
 .. image:: media/memory_set.png
     :width: 800

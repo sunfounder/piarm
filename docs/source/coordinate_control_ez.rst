@@ -53,14 +53,14 @@ Create three variables ([xAxis], [yAxis] and [zAxis]) to represent the PiArm con
 
 **Step 3** 
 
-Create a function called [coor] to set the rotation effect of **PiArm** based on the D-pad and button values.
+Create a function named [coor] to set the rotation effect of **PiArm** based on the D-pad and button values.
 
-* If the **UP** button (▲) of **D-pad** is pressed, the **Y** coordinate value increases and **PiArm** will extend.
-* If the **Down** button (▼) of **D-pad** is pressed, the **Y** coordinate value decreases and **PiArm** will retract.
-* If the **LEFT** button (◀) of **D-pad** is pressed, the **X** coordinate value decreases and **PiArm** will turn to left.
-* If the **RIGHT** button (▶) of **D-pad** is pressed, the **X** coordinate value increases and **PiArm** will turn to right.
-* If **Button A** is pressed, the **Z** coordinate value increases and **PiArm** will go up.
-* If **Button B** is pressed, the **Z** coordinate value decreases and **PiArm** will go down.
+* If the **UP** button (▲) of **D-pad** is pressed, the **Y** coordinate value increases and the **Arm** will extend forward.
+* If the **Down** button (▼) of **D-pad** is pressed, the **Y** coordinate value decreases and the **Arm** will retract backward.
+* If the **LEFT** button (◀) of **D-pad** is pressed, the **X** coordinate value decreases and the **Arm** will turn left.
+* If the **RIGHT** button (▶) of **D-pad** is pressed, the **X** coordinate value increases and the **Arm** will turn right.
+* If **Button A** is pressed, the **Z** coordinate value increases and the **Arm** will raise up.
+* If **Button B** is pressed, the **Z** coordinate value decreases and the **Arm** will lower down.
 
 .. note::
 

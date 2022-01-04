@@ -13,12 +13,14 @@ If you want to program in python, then you will need to learn some basic Python 
 After the assembly is complete, you can try to run the projects below.
 
 .. toctree::
+    :maxdepth: 1
 
-  test_3_headers_py
-  sound_effects_py
-  dual_joystick_module_py
-  remote_control_py
-  coordinate_control_py
-  memory_function_py
-  game_rubber_duck_collection_py
-  game_ball_collection_py
+    download_and_run_code
+    test_3_headers_py
+    sound_effects_py
+    dual_joystick_module_py
+    remote_control_py
+    coordinate_control_py
+    memory_function_py
+    game_catching_dolls_py
+    game_iron_collection_py

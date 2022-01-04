@@ -112,12 +112,12 @@ Assume that the X and Y of the left joystick and the Y of the right joystick are
 
 Now set the rotation effect of PiArm according to the toggle of the left and right joysticks.
 
-* If the **left joystick** is toggled to the right, let the PiArm turn to right.
-* If the **left joystick** is toggled to the left, let PiArm turn to left.
-* If the **left joystick** toggles forward, let PiArm extend.
-* If the **left joystick** toggles backward, let PiArm retract.
-* If the **right joystick** is toggled forward, let PiArm go down.
-* If the **right joystick** is toggled backward, let PiArm go up.
+* If the **left joystick** is toggled to the right, the Arm will turn right.
+* If the **left joystick** is toggled to the left, the Arm will turn left.
+* If the **left joystick** is toggled forward, the Arm will extend forward.
+* If the **left joystick** is toggled backward, the Arm will retract backward.
+* If the **right joystick** is toggled forward, the Arm will lower down.
+* If the **right joystick** is toggled backward, the Arm will raise up.
 
 .. note::
 
@@ -139,8 +139,8 @@ Store the obtained ``α``, ``β`` and ``γ`` angle values into the [α () β () 
 Once you click the download button, you can use the Dual Joystick Module to control PiArm.
 
 * Left joystick toggle left or right, the arm will turn to the left or right.
-* Left joystick toggle forward or backward, the arm will extend or retract.
-* Right joystick toggle forward or backward, the arm will lift up or drop down.
+* Left joystick toggle forward or backward, the arm will extend forward or retract backward.
+* Right joystick toggle forward or backward, the arm will raise up or lower down.
 
 .. note::
 

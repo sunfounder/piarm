@@ -50,14 +50,14 @@ Set the rotation speed of PiArm to 70%.
 
 **Step 3** 
 
-Create a function called [arm control] to set the rotation effect of PiArm based on the D-pad and button values.
+Create a function named [arm control] to set the rotation effect of PiArm based on the D-pad and button values.
 
-* If the UP button (▲) of D-pad is pressed, let PiArm extend.
-* If the Down button (▼) of D-pad is pressed, let PiArm retract.
-* If the LEFT button (◀) of D-pad is pressed, let PiArm turn to left.
-* If the RIGHT button (▶) of D-pad is pressed, let PiArm turn to right.
-* If Button A is pressed, let PiArm go down.
-* If Button B is pressed, let PiArm go up.
+* If the UP button (▲) of D-pad is pressed, the Arm will extend forward.
+* If the Down button (▼) of D-pad is pressed, the Arm will retract backward.
+* If the LEFT button (◀) of D-pad is pressed, the Arm will turn left.
+* If the RIGHT button (▶) of D-pad is pressed, the Arm will turn right.
+* If Button A is pressed, the Arm will lower down.
+* If Button B is pressed, the Arm will raise up.
 
 .. note::
 
@@ -142,7 +142,7 @@ Initialize the PiArm rotation speed and **Shovel Bucket** pin.
 Create a new function [shovel], and write code for it as the following steps, so that you can control **Shovel Bucket** by button.
 
 * Add one more button C from **Remote Control** page.
-* Create a variable called [angle].
+* Create a variable named [angle].
 * Use the [if else] block as a judgment condition. If button C is pressed, let the value of variable [angle] be added by 5; if button C is released, let the value of variable [angle] be subtracted by 5.
 * Use the [constain () low () high ()] block to limit the value of the variable [angle] to 0-90, since the **Shovel Bucket** works from 0-90.
 * Set the angle of the **Shovel Bucket** according to the variable [angle].
@@ -195,7 +195,7 @@ Initialize the PiArm rotation speed and **Hanging Clip** pin.
 Create a new function [clip], and write code for it as the following steps, so that you can control **Hanging Clip** by button.
 
 * Add one more button C from **Remote Control** page.
-* Create a variable called [angle].
+* Create a variable named [angle].
 * Use the [if else] block as a judgment condition. If button C is pressed, let the value of variable [angle] be added by 5; if button C is released, let the value of variable [angle] be subtracted by 5.
 * Use the [constain () low () high ()] block to limit the value of the variable [angle] to 0-90, since the **Hanging Clip** works from 0-90.
 * Set the angle of the **Hanging Clip** according to the variable [angle].

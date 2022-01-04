@@ -7,7 +7,7 @@ If You Have a Screen
 If you have a screen, it will be easy for you to operate on the
 Raspberry Pi.
 
-**Required?Components**
+**Required Components**
 
 ================== =========================
 Any Raspberry Pi   1 \* Power Adapter
@@ -16,11 +16,11 @@ Any Raspberry Pi   1 \* Power Adapter
 1 \* Mouse         1 \* Keyboard
 ================== =========================
 
-1. Insert the SD card you��ve set up with Raspberry Pi OS into the micro SD card slot on the underside of your Raspberry Pi.
+1. Insert the SD card you’ve set up with Raspberry Pi OS into the micro SD card slot on the underside of your Raspberry Pi.
 
 #. Plug in the Mouse and Keyboard.
 
-#. Connect the screen to Raspberry Pi��s HDMI port and make sure your screen is plugged into a wall socket and switched on.
+#. Connect the screen to Raspberry Pi’s HDMI port and make sure your screen is plugged into a wall socket and switched on.
 
     .. note::
 
@@ -34,7 +34,7 @@ Any Raspberry Pi   1 \* Power Adapter
 If You Have No Screen
 --------------------------
 
-If you don��t have a display, you can log in to the Raspberry Pi
+If you don’t have a display, you can log in to the Raspberry Pi
 remotely, but before that, you need to get the IP of the Raspberry Pi.
 
 Get the IP Address
@@ -44,7 +44,7 @@ After the Raspberry Pi is connected to WIFI, we need to get the IP
 address of it. There are many ways to know the IP address, and two of
 them are listed as follows.
 
-**1. ?Checking via the router**
+**1.  Checking via the router**
 
 If you have permission to log in the router(such as a home network), you
 can check the addresses assigned to Raspberry Pi on the admin interface
@@ -83,7 +83,7 @@ it.
 
 **Step 2**
 
-Type in **ssh pi@ip_address**. ``pi`` is your username and ``ip_address`` is
+Type in **ssh pi@ip_address** . \"pi\" is your username and \"ip_address\" is
 your IP address. For example:
 
 
@@ -94,7 +94,7 @@ your IP address. For example:
 
 **Step 3**
 
-Input��yes��.
+Input \"yes\".
 
 .. image:: media/image22.png
     :align: center
@@ -144,8 +144,8 @@ the IP address, there prompts a security reminder. Just click **Yes**.
 
 **Step 4**
 
-When the PuTTY window prompts ��\ **login as:��**, type in
-��\ **pi��**\ (the user name of the RPi), and **password: ��**\ raspberry��
+When the PuTTY window prompts \"**login as:**\", type in
+\"**pi**\" (the user name of the RPi), and **password:** \"raspberry\"
 (the default one, if you haven't changed it).
 
 .. note::

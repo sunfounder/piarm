@@ -49,7 +49,7 @@ Now let the [music] function implement playing background music at 50% volume.
 
 **Step 3**
 
-Create a function called [sound] to make PiArm play a specific sound effect at a certain volume.
+Create a function named [sound] to make PiArm play a specific sound effect at a certain volume.
 
 * [play sound effects () with volume to () %]: This block can be used to play built-in sound effects with a volume range of 0%-100%.
 
@@ -58,7 +58,7 @@ Create a function called [sound] to make PiArm play a specific sound effect at a
 
 **Step 4**
 
-Similarly create a function called [tts] that will be used to make PiArm say something.
+Similarly create a function named [tts] that will be used to make PiArm say something.
 
 * [say ()]: This block converts the text you type into speech for PiArm to speak.
 

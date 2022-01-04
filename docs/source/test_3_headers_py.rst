@@ -1,15 +1,26 @@
-Test 3 Headers
-=================
+Assemble and Test 3 EoATs
+=================================================
 
-This is the first project to teach us how to control the three head accessories of piarm.
+This is the first program, and the one you must see.
 
-The three accessories correspond to three codes respectively. You need to install the corresponding accessories and then run the corresponding codes.
+In this program, you will learn how to assemble and use PiArm's 3 end-of-arm tools.
 
-**Play Shovel Bucket**
+Shovel Bucket
+--------------------------
+
+**Assembling the Bucket**
+
+Assemble the Shovel Bucket to the end of PiArm.
 
 .. image:: media/bucket.png
 
-**Run the Code**
+
+The rotation range of Shovel Bucket is as follows.
+
+.. image:: media/bucket2.png
+
+**Run the code**
+
 
 .. raw:: html
 
@@ -20,12 +31,10 @@ The three accessories correspond to three codes respectively. You need to instal
     cd /home/pi/piarm/examples
     sudo python3 shovel.py
 
-After running the code, you will see the shovel keeps working.
+After running the code, you will see the Shovel Bucket moving back and forth.
 
 **Code**
 
-.. note::
-    You can **Modify/Reset/Copy/Run/Stop** the code below. But before that, you need to go to source code path like ``piarm\examples``. After modifying the code, you can run it directly to see the effect.
 
 .. raw:: html
 
@@ -41,7 +50,7 @@ After running the code, you will see the shovel keeps working.
     reset_mcu()
     sleep(0.01)
     arm = PiArm([1,2,3])
-    arm.bucket_init('P3')
+    arm.bucket_init(PWM('P3'))
     arm.set_offset([0,0,0])
 
     if __name__ == "__main__":
@@ -51,7 +60,7 @@ After running the code, you will see the shovel keeps working.
             arm.set_bucket(90)
             sleep(1)
 
-**How it works?**
+**How it work？**
 
 .. code-block::
 
@@ -60,24 +69,25 @@ After running the code, you will see the shovel keeps working.
     from time import sleep
     from piarm import PiArm
 
-First, import some modules that need to be used. The robot_hat has been introduced in detail before. The sleep class in the time module is used to control the delay.
-The PiArm class in the piarm module encapsulates some founctions based on robot_hat to better control the piarm.
+* First, import the ``Robot``, ``servo``, and ``PWM`` classes from `robot_hat <https://robot-hat.readthedocs.io/en/latest/index.html>`_.
+* Import the ``reset_mcu`` class from the ``robot_hat.utils`` module, which is used to reset the MCU, to avoid conflicts between programs that can cause communication errors.
+* Import the ``sleep`` class from the ``time`` module, which is used to implement the time delay function in seconds.
+* Import the ``PiArm`` class from the ``piarm`` module, which is used to control PiArm.
+
 
 .. code-block::
 
     reset_mcu()
     sleep(0.01)
     arm = PiArm([1,2,3])
-    arm.bucket_init('P3')
+    arm.bucket_init(PWM('P3'))
     arm.set_offset([0,0,0])
 
-Then perform some initialization, among which ``reset_mcu()`` can initialize the robot_hat microcontroller, so that the program can be stable and run from the beginning correctly.
+Initialize the MCU first, then initialize the individual servo connection pins of PiArm and the connection pin of the bucket.
 
-``arm = PiArm([1,2,3])`` create a ``PiArm`` object ``arm`` to control the piarm.
-
-``arm.bucket_init('P3')`` initialize the pin port of the shovel to P3.
-
-``arm.set_offset([0,0,0])`` Zero the rotation angle of the three servos of the piarm.
+* ``PiArm( )``: Initialize the 3 servo pins on the Arm.
+* ``bucket_init( )``: Set the pin of the bucket.
+* ``set_offset( )``: Set the offset value of the 3 servos on the Arm.
 
 .. code-block::
 
@@ -87,17 +97,26 @@ Then perform some initialization, among which ``reset_mcu()`` can initialize the
         arm.set_bucket(90)
         sleep(1)
 
-Then you can use the functions encapsulated in the ``PiArm`` class to control the head accessories of the piarm.
+This code is used to move the bucket back and forth between -50 and 90 degrees with a time interval of 1 second.
 
-``arm.set_bucket()`` are used to control the rotation angle of the shovel servo,
+* ``set_bucket()``: Used to control the rotation angle of the bucket.
 
+Hanging Clip
+--------------------
 
+**Assembly**
 
-**Play Hanging Clip**
+Assemble the Hanging Clip to the end of the PiArm.
 
 .. image:: media/clip.png
 
-**Run the Code**
+The working direction of Hanging Clip is as follows.
+
+.. image:: media/clip2.png
+
+.. image:: media/clip.png
+
+**Run the code**
 
 .. raw:: html
 
@@ -108,12 +127,10 @@ Then you can use the functions encapsulated in the ``PiArm`` class to control th
     cd /home/pi/piarm/examples
     sudo python3 clip.py
 
-After running the code, you will see the clip keeps working.
+After running the code, you will see the Hanging Clip repeatedly opening and closing.
+
 
 **Code**
-
-.. note::
-    You can **Modify/Reset/Copy/Run/Stop** the code below. But before that, you need to go to source code path like ``piarm\examples``. After modifying the code, you can run it directly to see the effect.
 
 .. raw:: html
 
@@ -129,7 +146,7 @@ After running the code, you will see the clip keeps working.
     reset_mcu()
     sleep(0.01)
     arm = PiArm([1,2,3])
-    arm.hanging_clip_init('P3')
+    arm.hanging_clip_init(PWM('P3'))
     arm.set_offset([0,0,0])
 
     if __name__ == "__main__":
@@ -139,25 +156,17 @@ After running the code, you will see the clip keeps working.
             arm.set_hanging_clip(90)		
             sleep(1)
 
-**How is works?**
+* ``hanging_clip_init( )``: Used to initialize the pin of the Hanging Clip.
+* ``set_hanging_clip( )``: used to set the rotation angle of the Hanging Clip. 
 
-``arm.hanging_clip_init('P3')`` initialize the pin port of the clip to P3.
+Electromagnet
+-------------------------
 
-.. code-block::
-
-    while True:
-        arm.set_hanging_clip(-50) 
-        sleep(1)		
-        arm.set_hanging_clip(90)
-        sleep(1)
-
-``arm.set_hanging_clip()`` are used to control the rotation angle of the clip servo.
-
-**Play Electromagnet**
+Install the Electromagnet to the end of the **PiArm**.
 
 .. image:: media/electromagnet.png
 
-**Run the Code**
+**Run the code**
 
 .. raw:: html
 
@@ -168,12 +177,9 @@ After running the code, you will see the clip keeps working.
     cd /home/pi/piarm/examples
     sudo python3 electromagnet.py
 
-After running the code, You will find that the electromagnet is energized every second (the led light D2 on the electromagnet is on to indicate that it is energized).
+After running the code, you will see that **Electromagnet** is energized every second, the LED (D2) on the electromagnet lights up to indicate that it is energized, at which point it can attach some material with the iron.
 
 **Code**
-
-.. note::
-    You can **Modify/Reset/Copy/Run/Stop** the code below. But before that, you need to go to source code path like ``piarm\examples``. After modifying the code, you can run it directly to see the effect.
 
 .. raw:: html
 
@@ -189,7 +195,7 @@ After running the code, You will find that the electromagnet is energized every 
     reset_mcu()
     sleep(0.01)
     arm = PiArm([1,2,3])
-    arm.electromagnet_init('P3')
+    arm.electromagnet_init(PWM('P3'))
     arm.set_offset([0,0,0])
 
     if __name__ == "__main__":
@@ -199,19 +205,9 @@ After running the code, You will find that the electromagnet is energized every 
             arm.set_electromagnet('off')
             sleep(1)
 
-**How it works?**
 
-``arm.electromagnet_init('P3')`` to initialize the pin port of the electromagnet to P3.
-
-.. code-block::
-
-    while True:
-        arm.set_electromagnet('on')
-        sleep(1)		
-        arm.set_electromagnet('off')
-        sleep(1)
-
-``arm.set_electromagnet()`` is used to control whether the electromagnet is energized or not.
+* ``electromagnet_init( )``: Used to initialize the connection of the Electromagnet.
+* ``set_electromagnet( )``: Used to control the Electromagnet on/off.
 
 
 

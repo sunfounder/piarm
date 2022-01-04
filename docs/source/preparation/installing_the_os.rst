@@ -1,7 +1,7 @@
 Installing the OS
 =======================
 
-**Required?Components**
+**Required Components**
 
 ================== ======================
 Any Raspberry Pi   1 \* Personal Computer
@@ -29,7 +29,7 @@ When you launch the installer, your operating system may try to block
 you from running it. For example, on Windows I receive the following
 message:
 
-If this pops up, click on?**More info**?and then?**Run anyway**, then
+If this pops up, click on **More info** and then **Run anyway**, then
 follow the instructions to install the Raspberry Pi Imager.
 
 .. image:: media/image12.png
@@ -41,17 +41,42 @@ Insert your SD card into the computer or laptop SD card slot.
 
 **Step 4**
 
-In the Raspberry Pi Imager, select the OS that you want to install and
-the SD card you would like to install it on.
+.. In the Raspberry Pi Imager, select the OS that you want to install and
+.. the SD card you would like to install it on.
 
-.. image:: media/image13.png
+.. .. image:: media/image13.png
+..     :align: center
+
+.. .. note:: 
+
+..     1) You will need to be connected to the internet the first time.
+
+..     2) That OS will then be stored for future offline use(lastdownload.cache, C:/Users/yourname/AppData/Local/Raspberry Pi/Imager/cache). So the next time you open the software, it will have the display "Released: date, cached on your computer".
+
+.. Download the `raspios_armhf-2020-05-28 <https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2021-05-28/2021-05-07-raspios-buster-armhf.zip>`_ image and select it in Raspberry Pi Imager.
+
+.. .. image:: media/otherOS.png
+..     :align: center
+
+.. .. warning::
+..     Raspberry Pi OS has major changes after the 2021-05-28 version, which may cause some functions to be unavailable. Please do not use the latest version for now.
+
+
+.. warning::
+
+    Upgrading the Raspberry Pi OS to **Debian Bullseye** will cause some features to not work, so it is recommended to continue using the **Debian Buster** version.
+
+In the Raspberry Pi Imager, click **CHOOSE OS** -> **Raspberry Pi OS(other)**.
+
+.. image:: media/3d33.png
     :align: center
 
-.. note::?
+Scroll down to the end of the newly opened page and you will see **Raspberry Pi OS(Legacy)** and **Raspberry Pi OS Lite(Legacy)**, these are security updates for Debian Buster, the difference between them is with or without the desktop.
+It is recommended to install **Raspberry Pi OS(Legacy)**, the system with the desktop.
 
-    1) You will need to be connected to the internet the first time.
+.. image:: media/3d34.png
+    :align: center
 
-    2) That OS will then be stored for future offline use(lastdownload.cache, C:/Users/yourname/AppData/Local/Raspberry Pi/Imager/cache). So the next time you open the software, it will have the display "Released: date, cached on your computer".
 
 **Step 5**
 
@@ -74,8 +99,7 @@ Then scroll down to complete the wifi configuration and click **SAVE**.
 
 .. note::
 
-    **wifi country**?should be set the two-letter?`ISO/IEC alpha2
-    code <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`__?for
+    **wifi country** should be set the two-letter `ISO/IEC alpha2 code <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements>`_ for
     the country in which you are using your Raspberry Pi, please refer to
     the following link: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
 
