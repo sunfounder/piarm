@@ -189,7 +189,6 @@ class PiArm(Robot):
     def set_bucket(self, angle):
         angle = self.limit(-50,90,angle)
         self.bucket.angle(angle)
-
         self.component_staus = angle
     
     def set_hanging_clip(self, angle):
@@ -237,22 +236,26 @@ class PiArm(Robot):
         except Exception as e:
             log(e)
 
-        if _data[self.data_index]['component'] != self.component:
-            log('Component mismatch.This record corresponds to the %s component.' % d['type'])
+        _data = dict(_data[self.data_index])
+        if _data['component'] != self.component:
+            log('Component mismatch.This record corresponds to the %s component.' %_data['type'])
         else:
-            steps = _data[self.data_index]['steps']   
-            for i in range(0,len(steps),2):      
-                angles = steps[i]
-                status = steps[i+1]
-                log('step %s: %s,%s '%(int(i/2),angles,status))
-                self.set_angle(angles)  
-                if self.component == 'bucket':
-                    self.set_bucket(status)
-                if self.component == 'hanging_clip':
-                    self.set_hanging_clip(status)
-                if self.component == 'electromagnet':
-                    self.set_electromagnet(status) 
-                time.sleep(delay)   
+            if 'steps' in  _data.keys() and len(_data['steps']) > 0:    
+                steps = _data['steps']
+                for i in range(0,len(steps),2):      
+                    angles = steps[i]
+                    status = steps[i+1]
+                    log('step %s: %s,%s '%(int(i/2),angles,status))
+                    self.set_angle(angles)  
+                    if self.component == 'bucket':
+                        self.set_bucket(status)
+                    if self.component == 'hanging_clip':
+                        self.set_hanging_clip(status)
+                    if self.component == 'electromagnet':
+                        self.set_electromagnet(status) 
+                    time.sleep(delay)               
+            else:
+                log('steps is null')
 
 
 def main():
