@@ -1,4 +1,4 @@
-# piarm
+# SunFounder PiArm Kit for Raspberry Pi
 This repository is for SunFounder PiArm - A robotic arm for Raspberry Pi. you can buy it on [our website](https://www.sunfounder.com/), or search sunfounder in Amazon.
 
 Quick Links:
@@ -13,14 +13,6 @@ Quick Links:
 <a id="about_this_kit"></a>
 ## About this kit:
 PiArm is a three-degree-of-freedom robotic arm for Raspberry Pi. It has 3 replaceable parts — Shovel Bucket, Hanging Clip and Electromagnet — to help you accomplish different tasks.
-
-<a id="trouble"></a>
-
-<a id="update"></a>
-## Update:
-2020-09-15:
- - New Release
- 
 
 <a id="about_sunfounder"></a>
 ## About SunFounder
