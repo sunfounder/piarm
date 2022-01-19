@@ -44,7 +44,7 @@ EzBlock 快速指南
 
 在 Raspberry Pi Imager 中选择刚下载的 EzBlock 镜像。
 
-.. image:: ../preparation/media/otherOS.png
+.. image:: ../preparation/media/use_custom.png
     :align: center
 
 
