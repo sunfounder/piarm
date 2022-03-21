@@ -5,7 +5,7 @@ Piarm 提供了记录动作的功能，可以用来记录 Piarm 做过的动作�
 
 在本项目中，我们将使用双摇杆模块在坐标控制模式下控制 PiArm 移动，并通过摇杆按钮记录其移动轨迹，以便 PiArm 可以沿着记录的轨迹重复移动。
 
-.. image:: media/joystick.png
+.. image:: img/joystick.png
     :width: 600
     :align: center
 
@@ -16,7 +16,7 @@ Piarm 提供了记录动作的功能，可以用来记录 Piarm 做过的动作�
 
 创建五个变量 (``HIGH``, ``LOW``, ``xAxis``, ``yAxis`` 和 ``zAxis``) 并为它们设置初始值。
 
-.. image:: media/memory1.png
+.. image:: img/memory1.png
 
 **第二步** 
 
@@ -29,7 +29,7 @@ Piarm 提供了记录动作的功能，可以用来记录 Piarm 做过的动作�
 * 如果 **右摇杆** 向前推动, 则让 PiArm 向上抬高。
 * 如果 **右摇杆** 向后推动, 则让 PiArm 向下降低。
 
-.. image:: media/memory_set.png
+.. image:: img/memory_set.png
     :width: 800
 
 .. note::
@@ -48,7 +48,7 @@ Piarm 提供了记录动作的功能，可以用来记录 Piarm 做过的动作�
 * 当按下左摇杆的按钮时，此时会记录PiArm的动作，并有语音提示，表示记录完成。
 * 当按下右操纵杆的按钮时，PiArm 会重复已经记录好的动作。
 
-.. image:: media/record123.png
+.. image:: img/record123.png
 
 .. note::
 
@@ -56,7 +56,7 @@ Piarm 提供了记录动作的功能，可以用来记录 Piarm 做过的动作�
     * 代码块 [如果...执行...], [...和...] 以及 [=] 都来自 **逻辑** 类别。
     * 右键单击代码块 [...和...] 并选择 **外部输入** 使其并行排列节省空间。
 
-    .. image:: media/and.png
+    .. image:: img/and.png
 
     * [运行动作集 (0) 设置延迟]: 该代码块用于设置记录好的每组动作的时间间隔，如果为0则表示没有间隔时间连续重复之前的动作。
 
@@ -70,7 +70,7 @@ Piarm 提供了记录动作的功能，可以用来记录 Piarm 做过的动作�
 
     您也可以在EzBlock Studio的示例页面找到同名的代码，直接点击运行或编辑查看代码块。
 
-.. image:: media/memory_col.png
+.. image:: img/memory_col.png
     :width: 800
 
 

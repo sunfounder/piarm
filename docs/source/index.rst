@@ -7,7 +7,7 @@ PiArm 是用于 树莓派 的三自由度机械臂。它有 3 个可互换的部
 
 此外，PiArm 提供远程控制和内置双操纵杆模块控制。
 
-.. image:: media/piarm.jpg
+.. image:: img/piarm.jpg
     :width: 600
     :align: center
 
@@ -27,8 +27,9 @@ PiArm 是用于 树莓派 的三自由度机械臂。它有 3 个可互换的部
     component_list_and_assembly_instructions
     about_robot_hat
     ezblock/for_ezblock_user
-    for_python_user
-    appendix
+    python/for_python_user
+    appendix/appendix
+    faq
 
 
 版权声明

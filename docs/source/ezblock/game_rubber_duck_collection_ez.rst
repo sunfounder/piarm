@@ -15,25 +15,25 @@
     * 变量 ``HIGH`` 和 ``LOW`` 的取值参考 :ref:`关于双摇杆模块的提示`.
     * ``α``, ``β`` and ``γ`` 表示 PiArm 手臂上三个舵机的旋转角度范围, 可参考: :ref:`关于手臂的转动角度提示`.
 
-.. image:: media/doll1.png
+.. image:: img/doll1.png
 
 
 **第二步**
 
 创建另外五个变量 (``LX``, ``LY``, ``RY``, ``LB``, ``RB``) 来分别读取双操纵杆模块的 X、Y 轴和按下的值。
 
-.. image:: media/joystick.png
+.. image:: img/joystick.png
     :width: 400
     :align: center
 
-.. image:: media/doll2.png
+.. image:: img/doll2.png
 
 **第三步**
 
 当LB和RB同时读取为0，表示左右摇杆被按下，此时游戏开始，同时计时并设置flag为1。
 
 
-.. image:: media/doll3.png
+.. image:: img/doll3.png
 
 **第四步**
 
@@ -42,7 +42,7 @@
 * 当按下左摇杆时，竖直夹会慢慢夹紧。
 * 当按下右摇杆时，竖直夹会慢慢松开。
 
-.. image:: media/doll4.png
+.. image:: img/doll4.png
 
 **第五步**
 
@@ -59,25 +59,25 @@
 
 * 竖直夹的控制代码也在这里被调用。这可以让您同时控制 PiArm 的手臂和竖直夹部分
 
-.. image:: media/doll5.png
+.. image:: img/doll5.png
 
 **第六步**
 
 将 [control] 函数块放入 [循环] 代码块中。
 
-.. image:: media/doll55.png
+.. image:: img/doll55.png
 
 **第七步**
 
 创建一个名为 [timing] 的函数以用于计时。游戏时间设置为60秒（60000），最后3秒会响起倒计时，让你知道时间快到了。
 
-.. image:: media/doll6.png
+.. image:: img/doll6.png
 
 **第八步**
 
 让 [timing] 函数在单独的线程中运行。这可以让您在记时的同时控制 PiArm。
 
-.. image:: media/doll7.png
+.. image:: img/doll7.png
     :width: 800
 
 
@@ -86,8 +86,8 @@
 
 完整代码如下：
 
-.. image:: media/doll.png
+.. image:: img/doll.png
     :width: 800
 
-.. image:: media/doll0.png
+.. image:: img/doll0.png
     :width: 800

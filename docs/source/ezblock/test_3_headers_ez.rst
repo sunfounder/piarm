@@ -8,18 +8,18 @@
 
 * 程序的基本结构由下面两个代码块构成, [开始] 代码块用于做一些初始化(里面没有放置代码块也不能删除)) 而 [循环] 顾名思义是一个连续的循环从而保证程序一直响应。
 
-.. image:: media/move8.png
+.. image:: img/move8.png
 
 * 下面这个代码块用于设置程序的间隔时间，单位为毫秒。
 
-.. image:: media/delay.png
+.. image:: img/delay.png
 
 PiArm代码块提示
 ----------------------
 
 在这里可以找到一些PiArm专用的代码块。
 
-.. image:: media/piarm_block.png
+.. image:: img/piarm_block.png
 
 铲斗
 --------------------------
@@ -28,12 +28,12 @@ PiArm代码块提示
 
 将铲斗组装到 **PiArm** 的末端.
 
-.. image:: media/bucket.png
+.. image:: img/bucket.png
 
 
 铲斗的旋转范围如下。
 
-.. image:: media/bucket2.png
+.. image:: img/bucket2.png
 
 **第二步**
 
@@ -44,7 +44,7 @@ PiArm代码块提示
 .. note::
     因为在组装图中，头部配件的舵机是连接的P3引脚，当然你也可以自己接到其它的备用引脚。
 
-.. image:: media/bucket31.png
+.. image:: img/bucket31.png
 
 **第三步**
 
@@ -53,7 +53,7 @@ PiArm代码块提示
 * [设置铲斗回卷至角度 ()]: 用于设置铲斗角度，范围0-90度。
 * [延时 ()]: 从 **基本** 类别中可以找到, 用于设置两个代码块之间的运行间隔时间，单位为毫秒。
 
-.. image:: media/bucket32.png
+.. image:: img/bucket32.png
 
 **第四步**
 
@@ -61,7 +61,7 @@ PiArm代码块提示
 
 然后你就可以看见铲斗在来回移动，可以单击运行按钮来停止运行代码。
 
-.. image:: media/bucket3.png
+.. image:: img/bucket3.png
 
 竖直夹
 ------------------------
@@ -70,11 +70,11 @@ PiArm代码块提示
 
 将竖直夹组装到 **PiArm** 末端。
 
-.. image:: media/clip.png
+.. image:: img/clip.png
 
 竖直夹的工作范围如下。
 
-.. image:: media/clip2.png
+.. image:: img/clip2.png
 
 **第二步**
 
@@ -86,7 +86,7 @@ PiArm代码块提示
     因为在组装图中，头部配件的舵机是连接的P3引脚，当然你也可以自己接到其它的备用引脚。
 
 
-.. image:: media/clip31.png
+.. image:: img/clip31.png
 
 
 **第三步**
@@ -96,7 +96,7 @@ PiArm代码块提示
 * [设置数值夹合拢至角度()]: 用于设置竖直夹的角度，范围0-90度。
 * [延时()]: 从 **基本** 类别中可以找到, 用于设置两个代码块之间的运行间隔时间，单位为毫秒。
 
-.. image:: media/clip32.png
+.. image:: img/clip32.png
 
 **第四步**
 
@@ -104,7 +104,7 @@ PiArm代码块提示
 
 然后你就可以看见竖直夹在不断张合，可以单击运行按钮来停止运行代码。
 
-.. image:: media/clip3.png
+.. image:: img/clip3.png
 
 电磁铁
 -------------------------
@@ -113,7 +113,7 @@ PiArm代码块提示
 
 将电磁铁组装到 **PiArm** 的末端。
 
-.. image:: media/electromagnet.png
+.. image:: img/electromagnet.png
 
 **第二步**
 
@@ -124,7 +124,7 @@ PiArm代码块提示
 .. note::
     因为在组装图中，头部配件的舵机是连接的P3引脚，当然你也可以自己接到其它的备用引脚。
 
-.. image:: media/electromagnet21.png
+.. image:: img/electromagnet21.png
 
 **第三步**
 
@@ -133,7 +133,7 @@ PiArm代码块提示
 * [电磁铁 (启动/关闭)]: 用于让电磁铁通电和断电。
 * [延时()]: 从 **基本** 类别中可以找到, 用于设置两个代码块之间的运行间隔时间，单位为毫秒。
 
-.. image:: media/electromagnet22.png
+.. image:: img/electromagnet22.png
 
 
 **第四步**
@@ -142,4 +142,4 @@ PiArm代码块提示
 
 然后你会发现电磁铁每秒通电一次，电磁铁上的LED（D2）亮起，表示它已通电，此时可以用来吸附一些铁制品。
 
-.. image:: media/electromagnet2.png
+.. image:: img/electromagnet2.png

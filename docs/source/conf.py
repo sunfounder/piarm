@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 import sphinx_rtd_theme
 
-project = 'Emakefun PiSloth机器人'
+project = 'Emakefun PiArm机器人'
 copyright = '2021, Emakefun'
 author = 'Emakefun'
 

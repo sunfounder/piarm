@@ -3,7 +3,7 @@
 
 在这个项目中，准备好3种不同形状的铁片，PiArm会随机说一种形状，你需要控制PiArm将相应形状的铁片放入各自的盒子里面。
 
-.. image:: media/iron1.png
+.. image:: img/iron1.png
     :width: 800
 
 编程
@@ -17,21 +17,21 @@
 
     * ``α``, ``β`` and ``γ`` 表示 PiArm 手臂上三个舵机的旋转角度范围, 可参考: :ref:`关于手臂的转动角度提示`.
 
-.. image:: media/iron2.png
+.. image:: img/iron2.png
 
 
 **第二步**
 
 从远程控制界面拖2个D-pad用来控制PiArm，一个按键来启动游戏，以及一个数码管来显示时间。
 
-.. image:: media/iron3.png
+.. image:: img/iron3.png
 
 
 **第三步** 
 
 创建一个叫做 [magnet] 的函数用来实现让D-pad B左右方向的按钮控制电磁铁的开和关。
 
-.. image:: media/iron4.png
+.. image:: img/iron4.png
 
 
 **第四步**
@@ -52,19 +52,19 @@
     * [否则如果]: 用于条件判断的代码块, 可以点击设置图标将 [否则] 或 [否则如果] 拖拽到 [如果] 下方来创建多个条件判断。
 
 
-.. image:: media/iron5.png
+.. image:: img/iron5.png
 
 **第五步**
 
 创建函数 [say_shape]，让PiArm随机说一个形状。
 
-.. image:: media/iron6.png
+.. image:: img/iron6.png
 
 **第六步**
 
 设置代码的主要流程：当按键 E 按下时，开始计时，此时PiArm会随机说一个形状。变量 ``flag`` 等于一时表示开始计时并可以控制PiArm了。
 
-.. image:: media/iron7.png
+.. image:: img/iron7.png
 
 **第七步**
 
@@ -72,23 +72,23 @@
 
 这里的 [timing] 函数不同于上一个项目，我们在这里用到了 [时间] 模块来进行计时，在循环里面当判断出按键E被按下时，计时开始，[时间 - startTime] 代码块表示从计时开始到现在过去了多少秒。 
 
-.. image:: media/iron8.png
+.. image:: img/iron8.png
 
 
 **第八步**
 
 让 [timing] 函数在单独的线程中运行。这可以让您在计时的同时控制 PiArm。
 
-.. image:: media/iron9.png
+.. image:: img/iron9.png
 
 
 
 完整代码如下:
 
-.. image:: media/iron00.png
+.. image:: img/iron00.png
     :width: 800
 
-.. image:: media/iron0.png
+.. image:: img/iron0.png
     :width: 800
 
 

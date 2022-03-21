@@ -8,14 +8,14 @@
 
 双摇杆模块由2个摇杆组成，每个摇杆可以输出X、Y、Z方向的电信号。
 
-.. image:: media/joystick.png
+.. image:: img/joystick.png
     :width: 600
     :align: center
 
 
 使用双操纵杆模块前，需要将其8根线连接到Robot HAT对应的引脚上，如下图所示。
 
-.. image:: media/dual_joy.png
+.. image:: img/dual_joy.png
     :width: 800
 
 
@@ -25,7 +25,7 @@
 举个例子，不推动摇杆时的坐标值为（2048,2048）。如果将操纵杆向左推动，坐标为 (0,2048)。当向下推动摇杆时，坐标为 (2048,0)，如下所示。
 
 
-.. image:: media/joystick3.jpg
+.. image:: img/joystick3.jpg
 
 但是电信号容易波动，很难得到绝对稳定的读数，所以我们通常会设置一个数值区间来判断摇杆目前所处位置。
 
@@ -33,7 +33,7 @@
 
 Z轴按钮按下时输出低电平（0），松开时输出高电平（1）。
 
-.. image:: media/joystick5.png
+.. image:: img/joystick5.png
 
 关于手臂的转动角度提示
 -------------------------------------
@@ -51,7 +51,7 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
 * ``β``: 可以控制机械臂上下移动的角度, 由于结构限制, 推荐角度范围为: -60 ~ 30.
 * ``γ``: 可以控制机械臂左右移动的角度, 角度范围为: -90 ~ 90.
 
-.. image:: media/pi_angle.jpg
+.. image:: img/pi_angle.jpg
     :width: 800
 
 
@@ -66,7 +66,7 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
 
     已经创建好的变量也会存放在 **变量** 类别中。
 
-.. image:: media/sp210512_114916.png
+.. image:: img/sp210512_114916.png
 
 **第二步** 
 
@@ -77,7 +77,7 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
     变量 **HIGH** 和 **LOW** 如何取值请参考 :ref:`关于双摇杆模块的提示`。
 
 
-.. image:: media/joystick6.png
+.. image:: img/joystick6.png
 
 **第三步** 
 
@@ -85,7 +85,7 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
 
 * [否则如果]: 用于条件判断的代码块, 可以点击设置图标将 [否则] 或 [否则如果] 拖拽到 [如果] 下方来创建多个条件判断。
 
-.. image:: media/joy1.png
+.. image:: img/joy1.png
 
 **第四步** 
 
@@ -97,7 +97,7 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
 
 假定用左摇杆的XY轴和右摇杆的Y轴来控制机械臂的三个舵机，首先要设置判断条件来判断左右摇杆是否被推动。
 
-.. image:: media/joystick.png
+.. image:: img/joystick.png
     :width: 400
     :align: center
 
@@ -108,7 +108,7 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
 * 如果 **A3 (RY)** 大于 **HIGH (3072)**, 则可以确定 **右摇杆** 向前推动。
 * 如果 **A3 (RY)** 小于 **LOW (1024)**, 则可以确定 **右摇杆** 向后推动。
 
-.. image:: media/joystick62.png
+.. image:: img/joystick62.png
 
 **第五步** 
 
@@ -126,7 +126,7 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
     * ``α``, ``β`` 和 ``γ`` 表示 PiArm 上三个舵机的旋转范围, 参考: :ref:`关于手臂的转动角度提示`。
     * [限制数字...介于（低）...到（高）...]: 可以在数学类中找到，用于设置一个变量的变化范围。
 
-.. image:: media/joystick63.png
+.. image:: img/joystick63.png
 
 
 **第六步** 
@@ -134,7 +134,7 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
 将获取到的 ``α``, ``β`` 和 ``γ`` 角度值放入 [α () β () γ ()] 代码块中, 然后用 [设置位置] 代码块使 PiArm 旋转到该位置。
 
 
-.. image:: media/joystick65.png
+.. image:: img/joystick65.png
 
 **第七步** 
 
@@ -148,8 +148,8 @@ PiArm的手臂由三个舵机驱动，使其可以前后左右上下移动，我
 
     您也可以在Ezblock Studio的示例页面找到同名的代码，直接点击运行或编辑查看代码块。
 
-.. image:: media/joystick6.png
+.. image:: img/joystick6.png
 
-.. image:: media/joystick7.png
+.. image:: img/joystick7.png
 
 

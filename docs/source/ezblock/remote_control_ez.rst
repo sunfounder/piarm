@@ -27,7 +27,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 
 要使用遥控功能，您需要从主页面左侧进入遥控页面，然后拖动一个方向键和三个按钮到中央区域。
 
-.. image:: media/control3.png
+.. image:: img/control3.png
 
 回到编程页面，您将看到一个附加的远程遥控类别，其中出现方向盘和按键代码块。
 
@@ -35,7 +35,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 * [按键 () 被 (按下/松开)]: 这个代码块和 ``按键 () 获取值 (0/1)`` 有着相似的效果，可以直接判断按钮是否被按下。
 * [方向盘 () 获取 () 值]: 这个代码块用于读取方向盘各个方向上的值，按下时为1，松开为0。
 
-.. image:: media/control4.png
+.. image:: img/control4.png
   :width: 500
 
 
@@ -43,7 +43,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 
 创建3个变量 (``α``, ``β`` and ``γ``) 并设置初始值, 并将PiArm的旋转速度设置为70%。
 
-.. image:: media/remote01.png
+.. image:: img/remote01.png
 
 **第三步** 
 
@@ -66,7 +66,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
     * [限制数字...介于（低）...到（高）...]: 可以在数学类中找到，用于设置一个变量的变化范围。
     * [否则如果]: 用于条件判断的代码块, 可以点击设置图标将 [否则] 或 [否则如果] 拖拽到 [如果] 下方来创建多个条件判断。
 
-.. image:: media/remote04.png
+.. image:: img/remote04.png
 
 **第四步** 
 
@@ -79,7 +79,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
     * 放置这些函数块时，函数必须放在 [开始] 和 [循环] 块之前。    
     * 您也可以在EzBlock Studio的示例页面找到同名的代码，直接点击运行或编辑查看代码块。
 
-.. image:: media/remote_control5.png
+.. image:: img/remote_control5.png
     :width: 800
 
 
@@ -92,25 +92,25 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 
 打开右上角的菜单图标，然后选择 **创建库** 。
 
-.. image:: media/create_libr.png
+.. image:: img/create_libr.png
 
 **第二步**
 
 选择函数，我们这里只创建了一个函数，所以默认选择 ``arm_control`` 。
 
-.. image:: media/arm_control.png
+.. image:: img/arm_control.png
 
 **第三步**
 
 为库命名并填写描述，一边以后更好地区分。
 
-.. image:: media/name_libr.png
+.. image:: img/name_libr.png
 
 **第四步**
 
 等待提示保存成功，然后该库将保存在您个人页面的 **我的库** 里面。 随后便可以在导入库的时候看见它了。
 
-.. image:: media/import.png
+.. image:: img/import.png
 
 .. _shovel_remote:
 
@@ -123,21 +123,21 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 
 导入 [arm_control] 库, 如果之前没有创建过这个库， 请参考: :ref:`创建库`。
 
-.. image:: media/remote12.png
+.. image:: img/remote12.png
 
 在 **我的库** 页面中, 选择您创建的库并单击 **导入**。
 
-.. image:: media/remote12ii.png
+.. image:: img/remote12ii.png
 
 导入后，库为折叠样式。您可以右键单击它然后选择 **展开块**，这样就可以看到它的内部代码。
 
-.. image:: media/arm_import.png
+.. image:: img/arm_import.png
 
 **第二步** 
 
 创建变量 (``α``, ``β``, ``γ`` 和 ``angle``) 并设置初始值为0, 然后初始化PiArm的旋转速度和铲斗的引脚。
 
-.. image:: media/remote11.png
+.. image:: img/remote11.png
 
 **第三步** 
 
@@ -148,7 +148,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 * 用 [限制数字 angle 介于（低）0 到（高）90] 将变量 ``angle`` 的值限制为0-90，因为铲斗的移动范围时0-90。
 * 根据变量 ``angle`` 设置铲斗的角度。
 
-.. image:: media/remote13.png
+.. image:: img/remote13.png
 
 **第四步** 
 
@@ -159,7 +159,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 .. note::
     您也可以在EzBlock Studio的示例页面找到名称为Shovel Bucket - Remote Control，直接点击运行或编辑查看代码块。
 
-.. image:: media/remote_control6.png
+.. image:: img/remote_control6.png
     :width: 800
 
 .. _clip_remote:
@@ -173,21 +173,21 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 
 导入 [arm_control] 库，如果之前没有创建过这个库，请参考: :ref:`创建库`。
 
-.. image:: media/remote12.png
+.. image:: img/remote12.png
 
 在 **我的库** 页面, 选择您创建的库并单击 **导入**.
 
-.. image:: media/remote12ii.png
+.. image:: img/remote12ii.png
 
 导入后，此库为折叠样式。您可以右键单击它并单击 **展开块** ，这样您就可以看到它的内部代码。
 
-.. image:: media/arm_import.png
+.. image:: img/arm_import.png
 
 **第二步** 
 
 创建变量 (``α``, ``β``, ``γ`` 和 ``angle``) 设置初始值为0, 然后初始化 PiArm 的转速和竖直夹引脚。
 
-.. image:: media/remote21.png
+.. image:: img/remote21.png
 
 **第三步** 
 
@@ -198,7 +198,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 * 用 [限制数字 angle 介于（低）0 到（高）90] 将变量 ``angle`` 的值限制为0-90，因为竖直夹的活动范围时0-90。
 * 根据变量 ``angle`` 设置竖直夹活动的角度。
 
-.. image:: media/remote22.png
+.. image:: img/remote22.png
 
 **第四步** 
 
@@ -210,7 +210,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
     您也可以在EzBlock Studio的示例页面找到名称为Hanging Clip - Remote Control，直接点击运行或编辑查看代码块。
 
 
-.. image:: media/remote_control7.png
+.. image:: img/remote_control7.png
     :width: 800
 
 .. _electro_remote:
@@ -224,21 +224,21 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 
 导入 [arm_control] 库, 如果之前没有创建过这个库, 请参考: :ref:`创建库`。
 
-.. image:: media/remote12.png
+.. image:: img/remote12.png
 
 在 **我的库** 页面, 选择您创建的库并单击 **导入**。
 
-.. image:: media/remote12ii.png
+.. image:: img/remote12ii.png
 
 导入后，此库为折叠样式。您可以右键单击它并选择 **展开块** ，这样您就可以看到它的内部代码。
 
-.. image:: media/arm_import.png
+.. image:: img/arm_import.png
 
 **第二步** 
 
 创建变量 (``α``, ``β`` and ``γ``) 并将初始值设置为0, 然后初始化 PiArm 的旋转速度和电磁铁的引脚。
 
-.. image:: media/remote31.png
+.. image:: img/remote31.png
 
 **第三步** 
 
@@ -248,7 +248,7 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
 * 使用 [如果...执行...] 块作为判断条件。如果按下按钮C，打开电磁铁；否则，让电磁铁关闭。
 
 
-.. image:: media/remote32.png
+.. image:: img/remote32.png
 
 **第四步** 
 
@@ -260,6 +260,6 @@ PiArm 的手臂有两种控制模式: **角度控制** 和 **坐标控制**。
     您也可以在EzBlock Studio的示例页面找到名称为Electromagnet - Remote Control，直接点击运行或编辑查看代码块。
 
 
-.. image:: media/remote_control8.png
+.. image:: img/remote_control8.png
     :width: 800
 

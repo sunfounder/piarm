@@ -8,15 +8,15 @@ Robot HAT内置扬声器，可以播放一些音乐和音效，也可以实现TT
 
 * 这个代码块是一个单独的线程，可以播放一些内置的背景音乐。
 
-.. image:: media/sound1.png
+.. image:: img/sound1.png
 
 * 这个代码块可以播放一些内置的声音效果。
 
-.. image:: media/sound2.png
+.. image:: img/sound2.png
 
 * 这个代码块可以输入一些文字然后让 PiArm 用语音讲出来。
 
-.. image:: media/sound3.png
+.. image:: img/sound3.png
 
 
 编程
@@ -28,12 +28,12 @@ Robot HAT内置扬声器，可以播放一些音乐和音效，也可以实现TT
 
 点击 **函数** 类别并选择相应的代码块，已经创建好的函数也会出现在这个部分。
 
-.. image:: media/emotional2.png
+.. image:: img/emotional2.png
   :width: 600
 
 我们在这里使用没有返回结果的 **函数** 块。
 
-.. image:: media/function_name.png
+.. image:: img/function_name.png
 
 
 **第二步**
@@ -45,7 +45,7 @@ Robot HAT内置扬声器，可以播放一些音乐和音效，也可以实现TT
 * [设置背景音乐音量为()]: 用于设置背景音乐的音量，范围为0%-100%。
 * [播放背景音乐()]: 这个代码块是一个单独的线程，可以播放一些内置的背景音乐。
 
-.. image:: media/sound5.png
+.. image:: img/sound5.png
 
 **第三步**
 
@@ -53,7 +53,7 @@ Robot HAT内置扬声器，可以播放一些音乐和音效，也可以实现TT
 
 * [播放音效 () 音量为 () %]: 这个代码块可以播放一些内置的音效，音量范围为0%-100%。
 
-.. image:: media/sound6.png
+.. image:: img/sound6.png
 
 **第四步**
 
@@ -61,13 +61,13 @@ Robot HAT内置扬声器，可以播放一些音乐和音效，也可以实现TT
 
 * [说 ()]: 这个代码块可以将您输入的文字转化成语音，并由 PiArm 读出来。
 
-.. image:: media/sound73.png
+.. image:: img/sound73.png
 
 **第五步**
 
 在 **函数** 类别中, 将刚刚创建的三个函数拖拽到 [循环] 块中以便按顺序执行它们。
 
-.. image:: media/sound74.png
+.. image:: img/sound74.png
 
 **第六步**
 
@@ -79,11 +79,11 @@ Robot HAT内置扬声器，可以播放一些音乐和音效，也可以实现TT
 
     您也可以在Ezblock Studio的示例页面找到同名的代码，直接点击运行或编辑查看代码块。
 
-.. image:: media/sound5.png
+.. image:: img/sound5.png
 
-.. image:: media/sound6.png
+.. image:: img/sound6.png
 
-.. image:: media/sound7v2.png
+.. image:: img/sound7v2.png
 
 
 
