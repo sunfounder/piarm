@@ -111,7 +111,7 @@ if __name__ == "__main__":
     thread1.start()     
 
     while True:
-        key = readchar()
+        key = readchar().lower()
         if  key == 'p':
             print(manual2)
             flag = True
