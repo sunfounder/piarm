@@ -1,6 +1,6 @@
 
 from robot_hat import Robot,Servo,PWM
-from robot_hat.utils import log,run_command
+from robot_hat.utils import run_command
 import time
 from os import path
 import json
@@ -27,7 +27,7 @@ class PiArm(Robot):
 
     def record_init(self,_path):
         if not path.exists(_path):
-            log('Steps record file does not exist.Create now...')
+            print('Steps record file does not exist.Create now...')
             try:
                 run_command('sudo mkdir -p '+_path.rsplit('/',1)[0])
                 run_command('sudo touch '+_path)
@@ -110,13 +110,14 @@ class PiArm(Robot):
             u = 30
         self.coord_temp = [x,y,z]
 
-        alpha = math.acos((self.A**2 + u**2 - self.B**2) / (2 * self.A * u))
-        beta = math.asin(z / u)
-        gamma = math.acos((self.A**2 + self.B**2 - u**2) / (2 * self.A * self.B))
-        delta = math.atan2(x, y)
-        alpha = 90 - (alpha + beta) / math.pi * 180
-        beta = -180 + (alpha + beta + gamma) / math.pi * 180
-        gamma = - delta / math.pi * 180
+        angle1 = math.acos((self.A**2 + u**2 - self.B**2) / (2 * self.A * u))
+        angle2 = math.asin(z / u)
+        angle3 = math.acos((self.A**2 + self.B**2 - u**2) / (2 * self.A * self.B))
+        angle4 = math.atan2(x, y)
+
+        alpha = 90 - (angle1 + angle2) / math.pi * 180
+        beta = -180 + (angle1 + angle2 + angle3) / math.pi * 180
+        gamma = - angle4 / math.pi * 180
 
         # alpha = round(alpha,2)
         # beta = round(beta,2)
@@ -223,7 +224,7 @@ class PiArm(Robot):
                 time.sleep(0.1)
                 f.close()
         except Exception as e:
-            log(e)   
+            print(e)   
 
     def record_reproduce(self,delay=0.01):    
         _data = []          
@@ -234,18 +235,18 @@ class PiArm(Robot):
                 time.sleep(0.1)
                 f.close()
         except Exception as e:
-            log(e)
+            print(e)
 
         _data = dict(_data[self.data_index])
         if _data['component'] != self.component:
-            log('Component mismatch.This record corresponds to the %s component.' %_data['type'])
+            print('Component mismatch.This record corresponds to the %s component.' %_data['type'])
         else:
             if 'steps' in  _data.keys() and len(_data['steps']) > 0:    
                 steps = _data['steps']
                 for i in range(0,len(steps),2):      
                     angles = steps[i]
                     status = steps[i+1]
-                    log('step %s: %s,%s '%(int(i/2),angles,status))
+                    print('step %s: %s,%s '%(int(i/2),angles,status))
                     self.set_angle(angles)  
                     if self.component == 'bucket':
                         self.set_bucket(status)
@@ -255,7 +256,7 @@ class PiArm(Robot):
                         self.set_electromagnet(status) 
                     time.sleep(delay)               
             else:
-                log('steps is null')
+                print('steps is null')
 
 
 def main():
