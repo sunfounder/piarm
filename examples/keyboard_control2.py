@@ -83,7 +83,7 @@ if __name__ == "__main__":
     print(manual)
 
     while True:
-        key = readchar()
+        key = readchar().lower()
         control(key)
         if key == chr(27):
             break		
