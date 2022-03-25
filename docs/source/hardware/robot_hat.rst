@@ -1,4 +1,4 @@
-关于 Robot HAT
+Robot HAT
 -----------------------------
 
 .. image:: img/picar_x_pic7.png

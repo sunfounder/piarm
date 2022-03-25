@@ -27,7 +27,7 @@ EzBlock几乎可用于所有类型的设备，包括Mac、PC和Android。
     sound_effects_ez
     dual_joystick_module_ez
     remote_control_ez
-    coordinate_control_ez
+    coordinate_mode_ez
     memory_function_ez
     game_rubber_duck_collection_ez
     game_ball_collection_ez

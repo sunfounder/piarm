@@ -21,7 +21,7 @@
     sound_effects_py
     dual_joystick_module_py
     remote_control_py
-    coordinate_control_py
+    coordinate_mode_py
     memory_function_py
     game_catching_dolls_py
     game_iron_collection_py

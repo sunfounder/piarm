@@ -19,6 +19,6 @@
 
 .. image:: img/sp211203_160509.png
 
-随后将弹出“连接成功”的提示，此时你可以回到 :ref:`play_ezblock` 。
+随后将弹出“连接成功”的提示，此时你可以回到 :ref:`play_ezblock`。
 
 .. image:: img/sp211203_160543.png
