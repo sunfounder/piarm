@@ -21,7 +21,7 @@
     * ``α``, ``β`` and ``γ`` 表示 PiArm 手臂上三个舵机的旋转角度范围, 可参考: :ref:`arm_angle`.
 
 .. image:: img/doll1.png
-    :width: 800
+
 
 **第二步**
 

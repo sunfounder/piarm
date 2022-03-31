@@ -12,3 +12,5 @@
 
 * :download:`PiArm组装教程(.pdf) <https://gitee.com/sunfounder/sf-pdf/raw/master/%E7%BB%84%E8%A3%85%E6%96%87%E4%BB%B6/PiArm%E7%BB%84%E8%A3%85%E6%95%99%E7%A8%8B.pdf>` 
 
+.. warning::
+    如果你收到的套件包含了透明的Robot HAT 保护壳，请不要把它安装上去，以免影响PiArm的左右转动范围。
