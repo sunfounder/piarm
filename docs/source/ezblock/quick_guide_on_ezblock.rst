@@ -4,7 +4,7 @@ Quick Guide on Ezblock
 There are 2 parts here:
 
 * :ref:`ezb_servo_adjust` allows you to keep all the servos at 0 degrees to complete a proper and safe assembly (otherwise you will probably damage the servos).
-* :ref:`install_ezbblock` will guide you to download Ezblock Studio to play with your robot.
+* :ref:`install_ezblock` will guide you to download Ezblock Studio to play with your robot.
 
 .. _ezb_servo_adjust:
 
@@ -14,7 +14,7 @@ Servo Adjust
 When assembling to the part with the servo, you need to keep the servo at 0° and secure it with the servo screw. Please follow the tutorial below to do this.
 
 
-#. Firstly, `Download and Install Ezblock OS <https://docs.sunfounder.com/projects/ezblock3/en/latest/quick_user_guide_for_ezblock3.html#download-and-install-ezblock-os>`_ onto a Micro SD card, once the installation is complete, insert it into the Raspberry Pi.
+#. Firstly, :ref:`ezblock:install_ezblock_os_latest` onto a Micro SD card, once the installation is complete, insert it into the Raspberry Pi.
 
 #. To ensure that the servo has been properly set to 0°, first insert the rocker arm into the servo shaft and then gently rotate the rocker arm to a different angle.
 
@@ -39,19 +39,17 @@ When assembling to the part with the servo, you need to keep the servo at 0° an
     * Before assembling each servo, you need to plug the servo cable into P11 and turn on the power to set its angle to 0°.
     * This zeroing function will be disabled if you download a program to the robot later with the EzBlock APP.
 
-Translated with www.DeepL.com/Translator (free version)
 
+.. _install_ezblock:
 
+Install and Configure EzBlock Studio
+----------------------------------------
 
+As soon as the robot is assembled, you will need to carry out some basic operations.
 
-.. _install_ezbblock:
-
-Install EzBlock Studio
-------------------------------------
-
-Once the robot is assembled, you need to download EzBlock Studio to program it.
-
-For a detailed installation tutorial, please refer to: `Install Ezblock Studio <https://docs.sunfounder.com/projects/ezblock3/en/latest/quick_user_guide_for_ezblock3.html#install-ezblock-studio>`_.
+* :ref:`ezblock:install_ezblock_app_latest`: Download and install EzBlock Studio on your device or use the web-based version.
+* :ref:`ezblock:connect_product_ezblock_latest`: Configure Wi-Fi, Bluetooth and calibrate before use.
+* :ref:`ezblock:open_run_latest`: View or run the related example directly.
 
 .. note::
 

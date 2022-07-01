@@ -1,3 +1,5 @@
+.. _quick_guide_py:
+
 Quick Guide on Python
 ==========================
 

@@ -1,6 +1,6 @@
+.. _test_eoat:
 
-
-Assemble and Test 3 EoATs
+Test 3 EoATs
 ================================
 
 This is the first program and the one you must see.
@@ -8,8 +8,6 @@ This is the first program and the one you must see.
 In this project, you will learn how to assemble and use PiArm's 3 End of Arm Tooling (EoAT, replaced by this abbreviation later.).
 
 Before programming, you need to learn the basic usage of Ezblock Studio from here.
-
-* `Quick User Guide for Ezblock 3 <https://docs.sunfounder.com/projects/ezblock3/en/latest/quick_user_guide_for_ezblock3.html>`_
 
 * `How to Create a New Project? <https://docs.sunfounder.com/projects/ezblock3/en/latest/create_new.html>`_
 
@@ -30,6 +28,8 @@ Tips on PiArm blocks
 Here you can find some blocks needed to make PiArm work.
 
 .. image:: img/piarm_block.png
+
+.. _ezb_shovel:
 
 Shovel Bucket
 --------------------------
@@ -66,6 +66,8 @@ Once the code is written, click the **Download** button in the bottom right corn
 Now you will see the **Shovel Bucket** moving back and forth, and you can click the **Run** button to stop the code from running.
 
 .. image:: img/bucket3.png
+
+.. _ezb_clip:
 
 Hanging Clip
 ------------------------
@@ -104,6 +106,8 @@ Once the code is written, click the **Download** button in the bottom right corn
 Now you will see the **Hanging Clip** repeatedly open/close, and you can click the **Run** button to stop the code from running.
 
 .. image:: img/clip3.png
+
+.. _ezb_electro:
 
 Electromagnet
 -------------------------

@@ -15,7 +15,7 @@ In this project, prepare 3 shapes of iron pieces: triangle, circle and square. P
     sudo python3 game_iron_collection.py
 
 After the code is run, first press ``p`` on the keyboard to start the game, PiArm will prompt the game to start, then randomly say a shape (``Round``, ``Triangle`` and ``Square``).
-You need to use ``w``, ``s``, ``a``, ``d``, ``i`` and ``k`` on the keyboard to control Arm, ``j`` and ``l`` to pick up the corresponding shape (you need to install :ref:`Electromagnet` to PiArm first.).
+You need to use ``w``, ``s``, ``a``, ``d``, ``i`` and ``k`` on the keyboard to control Arm, ``j`` and ``l`` to pick up the corresponding shape (you need to install :ref:`electro` to PiArm first.).
 
 60 seconds later, the game will be prompted to end and you will no longer be able to control the PiArm. If you want to stop the code from running, you need to press the ``Esc`` key first, then press ``Ctrl+C``.
 

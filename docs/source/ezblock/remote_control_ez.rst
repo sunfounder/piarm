@@ -187,11 +187,11 @@ After clicking the download button, use the D-pad and buttons A/B on the remote 
 Hanging Clip - Remote Control
 -------------------------------
 
-Create a new project and write code for it so that we can control the :ref:`Hanging Clip` while controlling the arm.
+Create a new project and write code for it so that we can control the :ref:`ezb_clip` while controlling the arm.
 
 **Step 1** 
 
-Import [arm_control] library, if you have not created this library before, please refer to: :ref:`Create a Library`.
+Import [arm_control] library, if you have not created this library before, please refer to: :ref:`ezb_create_library`.
 
 .. image:: img/remote12.png
 
@@ -248,11 +248,11 @@ After clicking the download button, use the D-pad and buttons A/B on the remote 
 Electromagnet - Remote Control
 --------------------------------------
 
-Create a new project and write code for it so that we can control the :ref:`Electromagnet` while controlling the arm.
+Create a new project and write code for it so that we can control the :ref:`electro` while controlling the arm.
 
 **Step 1** 
 
-Import [arm_control] library, if you have not created this library before, please refer to: :ref:`Create a Library`.
+Import [arm_control] library, if you have not created this library before, please refer to: :ref:`ezb_create_library`.
 
 .. image:: img/remote12.png
 

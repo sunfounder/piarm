@@ -1,9 +1,11 @@
-Assemble and Test 3 EoATs
+Test 3 EoATs
 =================================================
 
 This is the first program, and the one you must see.
 
 In this program, you will learn how to assemble and use PiArm's 3 end-of-arm tools.
+
+.. _py_shovel:
 
 Shovel Bucket
 --------------------------
@@ -58,7 +60,7 @@ After running the code, you will see the Shovel Bucket moving back and forth. Bu
     from time import sleep
     from piarm import PiArm
 
-* First, import the ``Robot``, ``servo``, and ``PWM`` classes from `robot_hat <https://robot-hat.readthedocs.io/en/latest/index.html>`_.
+* First, import the ``Robot``, ``servo``, and ``PWM`` classes from `robot_hat <https://docs.sunfounder.com/projects/robot-hat/en/latest/index.html>`_.
 * Import the ``reset_mcu`` class from the ``robot_hat.utils`` module, which is used to reset the MCU, to avoid conflicts between programs that can cause communication errors.
 * Import the ``sleep`` class from the ``time`` module, which is used to implement the time delay function in seconds.
 * Import the ``PiArm`` class from the ``piarm`` module, which is used to control PiArm.
@@ -89,6 +91,8 @@ Initialize the MCU first, then initialize the individual servo connection pins o
 This code is used to move the bucket back and forth between -50 and 90 degrees with a time interval of 1 second.
 
 * ``set_bucket()``: Used to control the rotation angle of the bucket.
+
+.. _py_clip:
 
 Hanging Clip
 --------------------
@@ -135,6 +139,8 @@ After running the code, you will see the Hanging Clip repeatedly opening and clo
 
 * ``hanging_clip_init( )``: Used to initialize the pin of the Hanging Clip.
 * ``set_hanging_clip( )``: used to set the rotation angle of the Hanging Clip. 
+
+.. _py_electro:
 
 Electromagnet
 -------------------------

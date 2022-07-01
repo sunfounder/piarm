@@ -32,5 +32,3 @@ The angle range of the Hanging Clip is 0-90°.
 * The weight of the clamped object should be less than 150g.
 * The recommended height of the object to be clamped should be less than 4cm, width less than 8.5cm.
 * Slender objects need to find the right angle to clip up.
-
-Translated with www.DeepL.com/Translator (free version)

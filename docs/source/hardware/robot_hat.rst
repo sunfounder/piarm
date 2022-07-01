@@ -20,5 +20,5 @@ About Robot HAT
     * The Bluetooth indicator LED will stay on with a solid Bluetooth connection, and blink rapidly during a signal transmission. The LED will blink at 1-second intervals if the Bluetooth is disconnected.  
 
 .. note::
-    You can see more details in the `Robot HAT Documentation <https://robot-hat.readthedocs.io/en/latest/index.html>`_.
+    You can see more details in the `Robot HAT Documentation <https://docs.sunfounder.com/projects/robot-hat/en/latest/index.html>`_.
 

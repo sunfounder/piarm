@@ -1,7 +1,7 @@
 Dual Joystick Module
 =======================
 
-We can control PiArm in 2 parts, Arm and EoAT. In the first project, you have learned how to :ref:`Assemble and Test 3 EoATs` of PiArm's separately.
+We can control PiArm in 2 parts, Arm and EoAT. In the first project, you have learned how to :ref:`test_eoat` of PiArm's separately.
 
 
 In this project, first the arm is controlled by :ref:`arm_angle` and dual joystick module. Then the control code for the three EoATs was added to this so that the dual joystick module can control both arm and EoAT.

@@ -50,6 +50,19 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 
+# Link to other projects’ documentation with intersphinx. Use the intersphinx_mapping configuration to indicate the name and link of the projects you want to use
+
+extensions = [
+    'sphinx.ext.intersphinx',
+]
+
+
+intersphinx_mapping = {
+    'ezblock': ('https://docs.sunfounder.com/projects/ezblock3/en/latest/', None),
+}
+
+
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".

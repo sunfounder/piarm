@@ -232,7 +232,7 @@ Hanging Clip  - Keyboard Control
 
 After running the code, follow the prompts and press the keys on the keyboard to control the Arm and Hanging Clip of PiArm.
 
-But you need to assemble :ref:`Hanging Clip` to PiArm first.
+But you need to assemble :ref:`clip` to PiArm first.
 
 .. note::
 
@@ -365,7 +365,7 @@ Electromagnet - Keyboard Control
 
 After running the code, follow the prompts and press the keys on the keyboard to control the PiArm's arms and Electromagnet.
 
-But you need to assemble :ref:`Electromagnet` to PiArm first.
+But you need to assemble :ref:`electro` to PiArm first.
 
 .. note::
 

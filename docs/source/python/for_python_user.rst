@@ -4,7 +4,7 @@
 Play with Python
 ====================
 
-If you want to program in python, then you will need to learn some basic Python programming skills and basic knowledge of Raspberry Pi, please configure the Raspberry Pi first according to :ref:`Quick Guide on Python`.
+If you want to program in python, then you will need to learn some basic Python programming skills and basic knowledge of Raspberry Pi, please configure the Raspberry Pi first according to :ref:`quick_guide_py`.
 
 
 .. toctree::

@@ -18,6 +18,10 @@ PiArm is a three-degree-of-freedom robotic arm for Raspberry Pi. It has 3 replac
 
 <a id="update"></a>
 ## Update:
+
+2022-07-1:
+ - change some links
+
 2020-09-15:
  - New Release
 
