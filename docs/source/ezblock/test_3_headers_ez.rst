@@ -9,7 +9,8 @@ In this project, you will learn how to assemble and use PiArm's 3 End of Arm Too
 
 Before programming, you need to learn the basic usage of Ezblock Studio from here.
 
-* `How to Create a New Project? <https://docs.sunfounder.com/projects/ezblock3/en/latest/create_new.html>`_
+* :ref:`ezblock:create_project_latest`
+
 
 Tips on basic blocks
 ----------------------------
