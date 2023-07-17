@@ -2,15 +2,17 @@
 from robot_hat import Robot,Servo,PWM
 from robot_hat.utils import run_command
 import time
-from os import path
+from os import path, getlogin
 import json
 import math
+
+user_name = getlogin()
 
 class PiArm(Robot):
     A = 80
     B = 80
     
-    def __init__(self, pin_list,steps_path='/home/pi/.config/piarm/steps_record.json'):
+    def __init__(self, pin_list,steps_path=f'/home/{user_name}/.config/piarm/steps_record.json'):
         super().__init__(pin_list, group=3)
         # define variables
         self.component = 'none'
